@@ -5,256 +5,324 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>뉴스 브리핑 - 2026년 4월 30일</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #f4f6f9; color: #333; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f5f5f5; color: #333; }
 
-  header {
-    background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #1565c0 100%);
+  .header {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 40%, #43a047 80%, #66bb6a 100%);
     color: white;
-    padding: 22px 16px 26px;
+    padding: 24px 20px 22px;
     text-align: center;
   }
-  header .date-label { font-size: 12px; opacity: 0.8; margin-bottom: 6px; letter-spacing: 0.5px; }
-  header h1 { font-size: 24px; font-weight: 800; }
-  header .sub { font-size: 13px; opacity: 0.85; margin-top: 6px; }
+  .header .sub { font-size: 12px; opacity: 0.8; margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
+  .header h1 { font-size: 22px; font-weight: 700; }
+  .header .date { font-size: 13px; opacity: 0.8; margin-top: 6px; }
 
-  .section-title {
-    display: flex; align-items: center; gap: 8px;
-    margin: 20px 16px 10px;
+  .nav-tabs {
+    display: flex;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-  .section-title .icon { font-size: 22px; }
-  .section-title h2 { font-size: 17px; font-weight: 800; color: #1a237e; }
-  .section-title .count { font-size: 11px; background: #1a237e; color: white; border-radius: 10px; padding: 1px 8px; }
+  .nav-tab {
+    flex: 1;
+    padding: 12px 4px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-tab.active { color: #1b5e20; border-bottom-color: #2e7d32; }
+
+  .container { max-width: 540px; margin: 0 auto; padding: 14px 14px 30px; }
+
+  .section { margin-bottom: 24px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .section-christian .section-header { background: linear-gradient(135deg, #1565c0, #1976d2); }
+  .section-world .section-header { background: linear-gradient(135deg, #4a148c, #6a1b9a); }
+  .section-ai .section-header { background: linear-gradient(135deg, #bf360c, #d84315); }
 
   .news-card {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    margin: 0 16px 12px;
-    overflow: hidden;
+    border-left: 3px solid #ddd;
+    padding: 14px 16px;
+    margin-bottom: 2px;
   }
-  .news-card .news-header {
-    padding: 12px 14px 8px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  .news-card .news-title {
-    font-size: 14px; font-weight: 700; color: #1a237e; line-height: 1.4;
-    margin-bottom: 4px;
-  }
-  .news-card .news-source {
-    font-size: 11px; color: #888;
-  }
-  .news-card .news-source a { color: #1565c0; text-decoration: none; }
-  .news-card .news-body { padding: 10px 14px 12px; }
-  .news-card .news-summary { font-size: 13px; color: #444; line-height: 1.65; }
+  .section-christian .news-card { border-left-color: #1976d2; }
+  .section-world .news-card { border-left-color: #7b1fa2; }
+  .section-ai .news-card { border-left-color: #d84315; }
 
-  .meta-row {
-    display: flex; flex-wrap: wrap; gap: 6px;
-    margin-top: 8px;
-  }
-  .meta-badge {
-    font-size: 11px; border-radius: 6px; padding: 3px 8px; font-weight: 600;
-  }
-  .badge-sermon { background: #e8f5e9; color: #2e7d32; }
-  .badge-positive { background: #e3f2fd; color: #1565c0; }
-  .badge-critical { background: #fff3e0; color: #e65100; }
-  .badge-life { background: #f3e5f5; color: #6a1b9a; }
-  .badge-trend { background: #fce4ec; color: #c62828; }
+  .news-card:last-child { border-radius: 0 0 10px 10px; }
 
-  .sermon-hint {
-    background: #f1f8e9;
-    border-left: 3px solid #66bb6a;
-    padding: 8px 10px;
-    margin-top: 8px;
-    border-radius: 0 6px 6px 0;
-    font-size: 12px; color: #33691e; line-height: 1.5;
+  .news-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 6px;
   }
+  .news-summary {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .news-source {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 6px;
+  }
+  .news-source a { color: #1565c0; text-decoration: none; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 6px;
+  }
+  .tag-sermon { background: #e3f2fd; color: #0d47a1; }
+  .tag-positive { background: #e8f5e9; color: #1b5e20; }
+  .tag-critical { background: #fce4ec; color: #880e4f; }
+  .tag-impact { background: #fff3e0; color: #e65100; }
+
+  .sermon-box {
+    background: #e8f0fe;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #1a237e;
+    line-height: 1.6;
+  }
+  .sermon-box strong { color: #0d47a1; }
 
   .opinion-box {
-    margin-top: 8px; border-radius: 8px; overflow: hidden;
-  }
-  .opinion-row {
-    padding: 6px 10px;
-    font-size: 12px; line-height: 1.5;
-  }
-  .opinion-row.positive { background: #e3f2fd; color: #0d47a1; }
-  .opinion-row.critical { background: #fff8e1; color: #bf360c; }
-
-  .life-impact {
-    background: #f3e5f5;
+    background: #f9f9f9;
     border-radius: 6px;
-    padding: 8px 10px;
+    padding: 8px 12px;
     margin-top: 8px;
-    font-size: 12px; color: #4a148c; line-height: 1.5;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .impact-box {
+    background: #fff8e1;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #5d4037;
+    line-height: 1.6;
   }
 
   .divider {
-    height: 1px; background: #e0e0e0;
-    margin: 4px 16px 0;
+    height: 1px;
+    background: #f0f0f0;
+    margin: 12px 0;
   }
 
-  footer {
-    text-align: center; font-size: 11px; color: #bbb;
-    padding: 14px 16px 24px;
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="date-label">2026년 4월 30일 (목요일)</div>
-  <h1>📰 뉴스 브리핑</h1>
-  <div class="sub">박정원 목사님을 위한 오늘의 주요 뉴스</div>
-</header>
-
-<!-- ===== 섹션 1: 기독교 뉴스 ===== -->
-<div class="section-title">
-  <span class="icon">✝️</span>
-  <h2>기독교 · 교회 뉴스</h2>
-  <span class="count">3건</span>
+<div class="header">
+  <div class="sub">박정원 목사 · 뉴스 브리핑</div>
+  <h1>📰 오늘의 뉴스</h1>
+  <div class="date">2026년 4월 30일 목요일</div>
 </div>
 
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">2026 기도컨퍼런스 사전 등록자 꾸준히 증가 중</div>
-    <div class="news-source">Google Forms 알림 · <a href="https://www.google.com" target="_blank">확인하기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">박정원 목사님이 준비 중인 '2026 기도컨퍼런스'에 새로운 사전 등록자가 접수되었습니다. 등록 현황을 확인하고 준비 상황을 점검하시기 바랍니다.</div>
-    <div class="meta-row">
-      <span class="meta-badge badge-sermon">📋 목회 활용 — 등록 현황 점검</span>
+<div class="container">
+
+  <!-- ===== 기독교 뉴스 ===== -->
+  <div class="section section-christian">
+    <div class="section-header">
+      ✝️ 기독교 뉴스
     </div>
-    <div class="sermon-hint">✍️ 설교 예화 활용 가능: 기도의 물결이 퍼져나가는 모습을 통해 성령의 역사하심을 증거하는 예화로 활용 가능합니다.</div>
-  </div>
-</div>
 
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">청년 다니엘기도회, 오륜교회에서 성황리 마무리 (4/24~26)</div>
-    <div class="news-source">침례신문 · <a href="https://www.baptistnews.co.kr/news/article.html?no=19882" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">2026 청년 다니엘기도회가 4월 24~26일 서울 오륜교회에서 열렸습니다. 다음 세대 청년들이 모여 기도하는 운동이 이어지고 있으며, 교회의 청년 사역과 기도 사역의 중요성이 다시 부각되고 있습니다.</div>
-    <div class="meta-row">
-      <span class="meta-badge badge-sermon">✅ 설교 예화 활용 가능</span>
+    <div class="news-card">
+      <div class="news-title">세계 기독교 지형 변화 가속 — "인구 이동·도시화·박해 대응 시급"</div>
+      <div class="news-summary">
+        고든-콘웰 신학대학원 세계기독교연구센터가 발표한 '2026년 세계기독교 현황 보고서'에 따르면, 전 세계 기독교 인구는 성장세를 이어가고 있지만 종교 박해, 난민 위기, 급격한 도시화로 인한 복합적 도전에 직면하고 있다. 특히 아프리카와 아시아 지역의 교세 확장과 함께 서방 교회의 쇠퇴가 대조를 이루고 있다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.christiantoday.co.kr/news/374754" target="_blank">크리스천투데이</a></div>
+      <span class="tag tag-sermon">📖 설교 예화</span>
+      <div class="sermon-box">
+        <strong>예화 포인트:</strong> 초대 교회도 박해와 이주 속에서 오히려 확장되었다(행 8:4). 고난이 복음을 막지 못하며, 오히려 씨앗처럼 흩어져 열매를 맺는다. 오늘날 남반구 교회의 성장은 하나님께서 여전히 역사하심을 보여주는 강력한 증거다.
+      </div>
     </div>
-    <div class="sermon-hint">✍️ 설교 예화 활용 가능: "기도하는 청년이 희망이다" — 다니엘처럼 세상 한복판에서 무릎 꿇는 청년들의 이야기를 통해 기도의 능력과 다음 세대에 대한 소망을 전할 수 있습니다.</div>
-  </div>
-</div>
 
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">오늘 교회력 — 부활 제4주간 목요일 (선한 목자 주간)</div>
-    <div class="news-source">바티칸 뉴스 · <a href="https://www.vaticannews.va/ko/pope/news/2026-04/papi-vangelo-parole27.html" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">부활절 후 제4주간으로 "선한 목자 주일" 주간입니다. 예수님께서 선한 목자로서 양들을 알고 부르신다는 말씀이 중심을 이룹니다. 목자로서 성도를 섬기는 목사님의 사역과 깊이 연결되는 교회력입니다.</div>
-    <div class="meta-row">
-      <span class="meta-badge badge-sermon">✅ 설교 예화 활용 가능</span>
+    <div class="news-card">
+      <div class="news-title">2026 청년다니엘기도회 성황리 개최 — "완성되지 않은 자를 부르신다"</div>
+      <div class="news-summary">
+        지난 4월 24일~26일 서울 강동구 오륜교회 비전홀에서 열린 '2026 청년다니엘기도회'가 수천 명의 청년들이 참여한 가운데 성황리에 마무리됐다. 주제는 "완성되지 않은, '완성될 사람' 부르셔"로, 하나님께서 부족한 청년들을 통해 역사하심을 선포했다.
+      </div>
+      <div class="news-source">출처: <a href="https://kr.christianitydaily.com/articles/131327/20260427" target="_blank">기독일보</a></div>
+      <span class="tag tag-sermon">📖 설교 예화</span>
+      <div class="sermon-box">
+        <strong>예화 포인트:</strong> 하나님은 완성된 사람이 아닌 '완성될 사람'을 부르신다. 다니엘도 포로로 끌려간 십대 청년이었다. 오늘 우리 청년들의 기도가 하나님의 나라를 변화시키는 불씨가 될 수 있다.
+      </div>
     </div>
-    <div class="sermon-hint">✍️ 설교 예화 활용 가능: 목자가 양의 이름을 하나하나 아는 것처럼, 예수님이 우리 각자의 이름을 부르신다는 메시지로 설교 도입부 또는 결론에 활용할 수 있습니다 (요 10:27).</div>
-  </div>
-</div>
 
-<!-- ===== 섹션 2: 세계 국제 정세 ===== -->
-<div class="section-title">
-  <span class="icon">🌏</span>
-  <h2>세계 · 국제 정세</h2>
-  <span class="count">3건</span>
-</div>
+    <div class="news-card">
+      <div class="news-title">은퇴 목사들의 '제2 사역' 활성화 — 소외된 이웃 섬기는 실버 목회자들</div>
+      <div class="news-summary">
+        김종준 목사(꽃동산교회 원로) 등 은퇴 목회자들이 제도권 사역 은퇴 후 소외된 이웃을 향한 '제2의 사역'에 헌신하고 있다. 복지시설 방문, 독거 어르신 돌봄, 해외 단기선교 등 다양한 형태로 제2의 부흥을 이루고 있다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.christiantoday.co.kr/" target="_blank">크리스천투데이</a></div>
+      <span class="tag tag-sermon">📖 설교 예화</span>
+      <div class="sermon-box">
+        <strong>예화 포인트:</strong> "나이 들어 결실하며 진액이 풍족하고 빛이 청청하리로다"(시 92:14). 인생의 가을에 더욱 향기로운 열매를 맺는 신앙인의 모습은 젊은 세대에게 신앙의 모델을 제시한다.
+      </div>
+    </div>
 
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">중동 긴장 고조 — 이란·호르무즈 해협 협상 난항</div>
-    <div class="news-source">오늘의클릭 · <a href="https://www.cliktoday.com/2026/04/20260425-today-news.html" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">트럼프 대통령이 이란의 호르무즈 해협 개방 제안을 거절하면서 중동 협상이 교착 상태에 빠져들고 있습니다. 유가 불안정 및 글로벌 공급망에 영향을 줄 수 있는 상황입니다.</div>
-    <div class="opinion-box">
-      <div class="opinion-row positive">👍 긍정적 시각: 협상 과정 자체가 진행 중이라는 점에서 외교적 해결 가능성은 열려 있으며, 국제사회의 중재 노력이 지속되고 있습니다.</div>
-      <div class="opinion-row critical">⚠️ 비판적 시각: 강경 대응이 오히려 긴장을 심화시켜 군사적 충돌 위험을 높인다는 우려가 있습니다. 에너지 가격 불안과 글로벌 인플레이션 압력이 커질 수 있습니다.</div>
+    <div class="news-card">
+      <div class="news-title">부활절 연합예배와 지역 교회 연합 운동 활성화</div>
+      <div class="news-summary">
+        미주 LA를 비롯한 전 세계 한인 교회들이 2026년 부활절을 맞아 연합 새벽예배를 개최했다. 교파를 초월한 연합 운동이 특히 해외 한인 사회에서 활발히 이루어지며, 한인 교회들이 지역 사회 정체성의 구심점 역할을 하고 있다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.christiantoday.co.kr/" target="_blank">크리스천투데이</a> · <a href="https://www.chpress.net/" target="_blank">미주크리스천신문</a></div>
+      <span class="tag tag-sermon">📖 설교 예화</span>
+      <div class="sermon-box">
+        <strong>예화 포인트:</strong> "보라 형제가 연합하여 동거함이 어찌 그리 선하고 아름다운고"(시 133:1). 부활의 기쁨은 혼자 간직할 수 없다. 함께 드리는 예배가 하나님께서 명령하신 복을 불러온다.
+      </div>
     </div>
   </div>
-</div>
 
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">북한 ICBM, 미국 본토 타격 능력 보유 — 미 국방부 평가</div>
-    <div class="news-source">MBC 뉴스 · <a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6818353_37004.html" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">미국 국방부가 북한의 대륙간탄도미사일(ICBM)이 미국 본토를 타격할 능력을 갖춘 것으로 공식 평가했습니다. 한반도 안보 환경이 복잡해지고 있으며 한미 연합 훈련도 다차원적 위협을 상정하여 진행 중입니다.</div>
-    <div class="opinion-box">
-      <div class="opinion-row positive">👍 긍정적 시각: 한미 동맹의 확장 억제력이 강화되고 있으며, 위협 평가가 구체화될수록 국제사회의 압박도 높아질 수 있습니다.</div>
-      <div class="opinion-row critical">⚠️ 비판적 시각: 군사적 억지력에만 의존할 경우 한반도 평화 프로세스가 더 어려워질 수 있으며, 북한 주민의 고통이 지속될 우려가 있습니다.</div>
+  <!-- ===== 세계 정세 뉴스 ===== -->
+  <div class="section section-world">
+    <div class="section-header">
+      🌍 세계 정세 뉴스
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">이란 외교장관, 러시아 방문 — 미·이란 협상 교착 상태 지속</div>
+      <div class="news-summary">
+        이란 외교부 장관 아바스 아라그치가 러시아 푸틴 대통령과의 회동을 위해 모스크바를 방문했다. 미국과 이란 사이의 협상이 사실상 중단된 가운데, 이란이 러시아와의 연대를 강화하며 서방의 압박에 맞서고 있다. 중동 전선의 불안정성이 지속되고 있다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.cnn.com/2026/04/26/world/live-news/iran-war-trump-israel" target="_blank">CNN</a> · <a href="https://www.fdd.org/overnight-brief/april-29-2026/" target="_blank">FDD Overnight Brief</a></div>
+      <div class="opinion-box">
+        <span class="tag tag-positive">✅ 긍정 여론</span> 협상 시도 자체는 전쟁보다 낫다는 평가. 외교적 해결을 통한 중동 안정화 기대.<br>
+        <span class="tag tag-critical">❌ 비판 여론</span> 이란-러시아 밀착이 서방 제재의 효과를 무력화하고, 중동 긴장을 더욱 장기화시킬 것이라는 우려.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">가자지구 지방 선거 실시 — 팔레스타인 대선 향한 첫 걸음</div>
+      <div class="news-summary">
+        가자지구와 서안지구에서 지방 선거가 실시되며, 수년간 미뤄져 온 팔레스타인 대통령 선거를 향한 첫 발걸음을 내딛었다. 국제 사회는 이를 중동 평화 프로세스의 중요한 신호로 주목하고 있다.
+      </div>
+      <div class="news-source">출처: <a href="https://abcnews.com/international" target="_blank">ABC News International</a></div>
+      <div class="opinion-box">
+        <span class="tag tag-positive">✅ 긍정 여론</span> 민주주의 절차를 통한 팔레스타인 자치 복원의 긍정적 신호로 평가.<br>
+        <span class="tag tag-critical">❌ 비판 여론</span> 실질적 안보 상황 변화 없이 선거만으로는 평화를 담보할 수 없다는 회의론.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">북한 핵 전력 임계점 접근 — 미국 방어망 압도 우려</div>
+      <div class="news-summary">
+        북한의 핵무기 보유량이 미국이 수십 년에 걸쳐 구축한 지상 기반 미사일 방어 시스템을 압도할 수 있는 수준에 근접했다는 분석이 나왔다. 전문가들은 미국과 동맹국들이 방어 전략을 전면 재검토해야 할 시점이라고 경고한다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.npr.org/sections/world/" target="_blank">NPR World</a></div>
+      <div class="opinion-box">
+        <span class="tag tag-positive">✅ 긍정 여론</span> 한미 동맹 강화 및 다층 방어 체계 구축의 필요성을 재확인하는 계기.<br>
+        <span class="tag tag-critical">❌ 비판 여론</span> 대화 없는 군비 경쟁은 한반도 긴장만 고조시킬 뿐이라는 외교적 해법 촉구.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">미국-쿠바 긴장 고조 — 수십 년 만의 최대 위기</div>
+      <div class="news-summary">
+        미국과 쿠바 관계가 수십 년 만에 최악의 긴장 국면에 접어들었다. 미국이 하바나에서 고위급 협상을 진행하면서도 군사 행동을 위협하는 이중적 태도를 보이고 있어, 카리브해 지역의 불안정성이 높아지고 있다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a></div>
+      <div class="opinion-box">
+        <span class="tag tag-positive">✅ 긍정 여론</span> 협상 채널 유지 자체가 군사 충돌을 예방하는 현실적 외교 수단.<br>
+        <span class="tag tag-critical">❌ 비판 여론</span> 군사 위협과 대화를 동시에 구사하는 미국의 전략이 쿠바를 더욱 강경하게 만들 것이라는 우려.
+      </div>
     </div>
   </div>
-</div>
 
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">코스피 6,600 돌파 — 한국 증시 역대 최고치 경신</div>
-    <div class="news-source">오늘의클릭 · <a href="https://www.cliktoday.com/2026/04/20260429-today-news.html" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">코스피 지수가 6,600을 돌파하며 역대 최고치를 기록했습니다. AI 반도체 관련 주식의 강세가 주요 원인으로 분석되며, 삼성전자·SK하이닉스 등 반도체 기업들의 실적 기대감이 반영되고 있습니다.</div>
-    <div class="opinion-box">
-      <div class="opinion-row positive">👍 긍정적 시각: 한국 경제의 기술 경쟁력이 글로벌 시장에서 재평가되고 있으며, AI 시대의 핵심 수혜국으로 부상하고 있습니다.</div>
-      <div class="opinion-row critical">⚠️ 비판적 시각: 증시 과열 우려가 있으며, 일부 전문가들은 AI 거품 가능성과 미중 무역 갈등에 따른 변동성을 경고합니다.</div>
+  <!-- ===== AI 뉴스 ===== -->
+  <div class="section section-ai">
+    <div class="section-header">
+      🤖 AI 업계 뉴스
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">OpenAI-Microsoft 독점 계약 해소 — AWS가 즉시 OpenAI 서비스 도입</div>
+      <div class="news-summary">
+        OpenAI와 마이크로소프트가 수년간 유지해 온 독점 파트너십을 해소했다. 새 계약에서 MS는 OpenAI에 대한 매출 공유 지급을 중단하고, OpenAI는 모든 클라우드 서비스에서 자사 제품을 운영할 수 있게 됐다. 계약 발표 직후 AWS는 세 가지 새로운 OpenAI 서비스를 자사 플랫폼에 도입했다.
+      </div>
+      <div class="news-source">출처: <a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over-its-50b-amazon-deal/" target="_blank">TechCrunch</a></div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향:</strong> 앞으로 ChatGPT 등 OpenAI 서비스를 네이버, 카카오, Amazon 등 다양한 플랫폼에서 더 쉽게 만날 수 있게 됩니다. 경쟁이 늘어나면 가격도 낮아질 전망입니다.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">머스크 vs. 알트만 재판 3일차 — 치열한 법정 공방</div>
+      <div class="news-summary">
+        일론 머스크와 OpenAI CEO 샘 알트만 간의 소송이 캘리포니아 오클랜드 연방법원에서 진행 중이다. 머스크는 OpenAI의 비영리에서 영리 법인으로의 전환 과정에 이의를 제기하고 있으며, 4월 29일 교차 심문에서 양측이 치열하게 충돌했다.
+      </div>
+      <div class="news-source">출처: <a href="https://www.cnbc.com/2026/04/29/musk-altman-live-updates-day-3-open-ai-trial.html" target="_blank">CNBC</a></div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향:</strong> 이 재판 결과에 따라 AI 기업의 투자 구조와 공공성이 크게 바뀔 수 있습니다. AI가 소수 기업의 영리 도구가 될지, 공익적 기술로 남을지에 대한 중요한 판례가 될 전망입니다.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">딥시크, AI 모델 가격 대폭 인하 — 글로벌 가격 경쟁 재점화</div>
+      <div class="news-summary">
+        중국 AI 기업 딥시크(DeepSeek)가 최신 AI 모델의 사용 가격을 대폭 인하하면서, 이미 치열한 AI 서비스 시장의 가격 경쟁이 다시 불붙었다. OpenAI, 구글, 앤트로픽 등 주요 기업들도 경쟁적으로 가격 조정에 나설 것으로 예상된다.
+      </div>
+      <div class="news-source">출처: <a href="https://kr.investing.com/news/stock-market-news/article-1913474" target="_blank">Investing.com Korea</a></div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향:</strong> AI 서비스 가격 인하 경쟁은 일반 사용자와 소규모 교회·단체에게도 AI 도구를 더욱 저렴하게 사용할 수 있는 기회를 제공합니다.
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title">ChatGPT for Clinicians 출시 — 의료진 전용 무료 임상 AI</div>
+      <div class="news-summary">
+        OpenAI가 미국 내 의사, 전문간호사(NP), 의사보조사(PA), 약사 등 검증된 의료 종사자를 위한 무료 임상 AI 서비스 'ChatGPT for Clinicians'를 출시했다. 진단 보조, 약물 정보 검색, 환자 안내문 작성 등 임상 현장 지원에 특화된 버전이다.
+      </div>
+      <div class="news-source">출처: <a href="https://openai.com/news/" target="_blank">OpenAI News</a> · <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향:</strong> 의료 AI의 확산으로 진료 품질이 높아질 수 있지만, AI에 과도하게 의존하는 의료 문화에 대한 윤리적 논의도 함께 필요합니다. 환자로서 AI 보조 진료에 대해 의사에게 물어볼 권리가 있습니다.
+      </div>
     </div>
   </div>
+
+  <div class="footer">
+    자동 생성: 2026년 4월 30일 오전 · Claude AI 브리핑 시스템<br>
+    뉴스 출처: 크리스천투데이, 기독일보, CNN, NPR, CNBC, TechCrunch 등
+  </div>
+
 </div>
-
-<!-- ===== 섹션 3: AI 최신 뉴스 ===== -->
-<div class="section-title">
-  <span class="icon">🤖</span>
-  <h2>인공지능 · AI 최신 뉴스</h2>
-  <span class="count">3건</span>
-</div>
-
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">딥시크(DeepSeek), AI 모델 가격 10분의 1로 대폭 인하</div>
-    <div class="news-source">Investing.com Korea · <a href="https://kr.investing.com/news/stock-market-news/article-1913474" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">중국 AI 스타트업 딥시크가 전체 API 제품군의 가격을 기존 대비 10분의 1 수준으로 인하했습니다. V4-Pro 모델은 5월 5일까지 75% 할인 제공됩니다. 이로 인해 OpenAI, 구글 등 글로벌 AI 기업들의 가격 경쟁이 심화되고 있습니다.</div>
-    <div class="life-impact">
-      💡 <strong>일반인 생활 영향:</strong> AI 서비스 비용이 낮아지면서 번역, 문서 작성, 이미지 생성 등 AI 도구를 더 저렴하게 이용할 수 있게 됩니다. 교회 행정, 설교 준비, 사역 자료 제작에도 AI 비용 부담이 줄어들 전망입니다.
-    </div>
-  </div>
-</div>
-
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">한국 이재명 대통령, 딥마인드 CEO 만나 "AI 가드레일 필요" 강조</div>
-    <div class="news-source">MBC 뉴스 · <a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6818353_37004.html" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">이재명 대통령이 구글 딥마인드 CEO 데미스 하사비스와 만나 AI 기술의 안전한 발전을 위한 국제적 가드레일의 필요성을 강조했습니다. 한국에 구글 AI 캠퍼스 설립 및 AI 공동 연구·인재 양성 MOU도 체결되었습니다.</div>
-    <div class="life-impact">
-      💡 <strong>일반인 생활 영향:</strong> AI 윤리와 안전에 대한 국가 차원의 논의가 시작되면서, 향후 AI 서비스의 투명성과 신뢰성이 높아질 것으로 기대됩니다. 한국의 AI 기술 허브화로 관련 일자리와 교육 기회도 늘어날 전망입니다.
-    </div>
-  </div>
-</div>
-
-<div class="news-card">
-  <div class="news-header">
-    <div class="news-title">가트너, 2026년 10대 기술 트렌드 발표 — "AI 네이티브 시대 본격화"</div>
-    <div class="news-source">전국인력신문 · <a href="https://www.kjob.news/news/485099" target="_blank">원문 보기</a></div>
-  </div>
-  <div class="news-body">
-    <div class="news-summary">글로벌 IT 자문기관 가트너가 2026년 스타트업과 기업을 위한 10대 기술 트렌드를 발표했습니다. AI가 모든 산업의 핵심 동력으로 자리잡는 "AI 네이티브 시대"가 본격화되고 있으며, 에이전트 AI, 공간 컴퓨팅, 에너지-효율 AI 등이 주요 트렌드로 꼽혔습니다.</div>
-    <div class="life-impact">
-      💡 <strong>일반인 생활 영향:</strong> AI 비서가 일정 관리, 정보 검색, 쇼핑, 의료 상담 등 일상 전반을 지원하는 시대가 가속화됩니다. 교육·의료·금융 등에서 AI 도입으로 서비스 품질이 향상되는 반면, AI 리터러시(AI 이해 능력) 교육의 중요성도 커집니다.
-    </div>
-  </div>
-</div>
-
-<footer>
-  자동 생성 뉴스 브리핑 · 2026. 4. 30 (목) · pjw19822000@gmail.com<br>
-  뉴스 출처: 크리스천투데이, 침례신문, MBC뉴스, 오늘의클릭, Investing.com, 전국인력신문
-</footer>
-
 </body>
 </html>
