@@ -3,398 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>뉴스 브리핑 – 2026년 5월 13일 (수)</title>
+<title>뉴스 브리핑 - 2026년 5월 17일 (일)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    background: #f4f6fb;
-    color: #1a1a2e;
+    font-family: 'Malgun Gothic', '맑은 고딕', Apple SD Gothic Neo, sans-serif;
+    background: #f0f2f5;
+    color: #333;
     min-height: 100vh;
   }
   header {
-    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #006064 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #0d47a1 100%);
+    color: white;
     padding: 22px 16px 18px;
     text-align: center;
   }
   header .date-label {
     font-size: 12px;
-    opacity: 0.8;
-    letter-spacing: 1px;
+    opacity: 0.7;
+    letter-spacing: 1.5px;
     margin-bottom: 4px;
   }
-  header h1 { font-size: 22px; font-weight: 800; }
-  header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
-
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  header .subtitle {
+    font-size: 12px;
+    opacity: 0.65;
+    margin-top: 4px;
+  }
   .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 16px 12px 50px;
+    padding: 16px;
   }
-
-  /* 섹션 헤더 */
   .section-header {
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 20px 0 10px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    margin: 20px 0 10px;
-    color: #fff;
+    gap: 10px;
+  }
+  .section-header.christian {
+    background: linear-gradient(90deg, #1b5e20, #2e7d32);
+    color: white;
+  }
+  .section-header.world {
+    background: linear-gradient(90deg, #b71c1c, #c62828);
+    color: white;
+  }
+  .section-header.ai {
+    background: linear-gradient(90deg, #4a148c, #6a1b9a);
+    color: white;
+  }
+  .section-header .icon { font-size: 22px; }
+  .section-header .label {
     font-size: 14px;
     font-weight: 700;
+    letter-spacing: 0.5px;
   }
-  .sec-christian { background: linear-gradient(90deg, #4527a0, #7b1fa2); }
-  .sec-world     { background: linear-gradient(90deg, #1565c0, #0277bd); }
-  .sec-ai        { background: linear-gradient(90deg, #00695c, #00897b); }
-
-  /* 뉴스 카드 */
+  .section-header .count {
+    margin-left: auto;
+    font-size: 11px;
+    opacity: 0.8;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
   .news-card {
-    background: #fff;
+    background: white;
     border-radius: 12px;
     padding: 14px 16px;
     margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    border-left: 4px solid #ccc;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   }
-  .news-card.christian { border-left-color: #7b1fa2; }
-  .news-card.world     { border-left-color: #1565c0; }
-  .news-card.ai        { border-left-color: #00897b; }
+  .news-num {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .num-christian { background: #e8f5e9; color: #1b5e20; }
+  .num-world { background: #ffebee; color: #b71c1c; }
+  .num-ai { background: #f3e5f5; color: #4a148c; }
 
   .news-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 6px;
-    color: #1a1a2e;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
   }
   .news-summary {
     font-size: 13px;
     color: #444;
-    line-height: 1.65;
-    margin-bottom: 8px;
-  }
-  .news-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 6px;
+    line-height: 1.7;
+    margin-bottom: 10px;
   }
   .news-source {
     font-size: 11px;
     color: #888;
+    margin-bottom: 8px;
   }
   .news-source a {
-    color: #1565c0;
+    color: #1a237e;
     text-decoration: none;
   }
-  .news-source a:hover { text-decoration: underline; }
-
-  /* 특수 배지 */
-  .badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 6px;
+  .tag-box {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
   }
-  .badge {
-    display: inline-block;
-    font-size: 11px;
+  .tag-label {
+    font-size: 10px;
     font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
+    color: #888;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
   }
-  .badge-illus  { background: #f3e5f5; color: #6a1b9a; }
-  .badge-pos    { background: #e8f5e9; color: #1b5e20; }
-  .badge-neg    { background: #fdecea; color: #b71c1c; }
-  .badge-impact { background: #e0f7fa; color: #006064; }
-
-  /* 예화 박스 */
-  .illus-box {
-    background: #f3e5f5;
-    border-radius: 8px;
-    padding: 10px 12px;
-    margin-top: 8px;
+  .tag-content {
     font-size: 12px;
-    color: #4a148c;
+    color: #555;
     line-height: 1.6;
-    border-left: 3px solid #ab47bc;
+    background: #f9f9f9;
+    border-radius: 6px;
+    padding: 7px 10px;
   }
-  .illus-box strong { font-size: 11px; display: block; margin-bottom: 3px; color: #6a1b9a; }
-
-  /* 여론 박스 */
-  .opinion-box {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .op-item {
-    flex: 1;
-    border-radius: 8px;
-    padding: 8px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-  }
-  .op-pos { background: #e8f5e9; border: 1px solid #a5d6a7; color: #1b5e20; }
-  .op-neg { background: #fdecea; border: 1px solid #ef9a9a; color: #b71c1c; }
-  .op-label { font-weight: 700; font-size: 11px; margin-bottom: 3px; }
-
-  /* 일반인 영향 박스 */
-  .impact-box {
-    background: #e0f7fa;
-    border-radius: 8px;
-    padding: 10px 12px;
-    margin-top: 8px;
-    font-size: 12px;
-    color: #004d40;
-    line-height: 1.6;
-    border-left: 3px solid #00acc1;
-  }
-  .impact-box strong { font-size: 11px; display: block; margin-bottom: 3px; color: #00695c; }
+  .tag-content.sermon { background: #f1f8e9; color: #33691e; }
+  .tag-content.pro { background: #e8f5e9; color: #2e7d32; }
+  .tag-content.con { background: #ffebee; color: #c62828; }
+  .tag-content.impact { background: #f3e5f5; color: #6a1b9a; }
 
   footer {
     text-align: center;
+    padding: 24px 16px;
     font-size: 11px;
     color: #aaa;
-    margin-top: 30px;
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="date-label">2026년 5월 13일 수요일</div>
+  <div class="date-label">2026년 5월 17일 일요일</div>
   <h1>📰 뉴스 브리핑</h1>
-  <div class="subtitle">기독교 · 세계 정세 · AI 업계 — 박정원 목사님을 위한 오늘의 뉴스</div>
+  <div class="subtitle">기독교 · 세계 정세 · AI 업계</div>
 </header>
 
 <div class="container">
 
-  <!-- ===== 기독교 뉴스 ===== -->
-  <div class="section-header sec-christian">✝ 기독교 뉴스</div>
+  <!-- 기독교 뉴스 -->
+  <div class="section-header christian">
+    <div class="icon">✝️</div>
+    <div class="label">기독교 뉴스</div>
+    <div class="count">4건</div>
+  </div>
 
-  <!-- 기독 1 -->
-  <div class="news-card christian">
-    <div class="news-title">유럽 복음주의 청년 수천 명, 프랑스 집결 — '에코(Echo) 2026' 15일 개막</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-christian">1</span>
+      2026 한국교회 10대 트렌드: AI 목회·심플처치·강소교회
+    </div>
     <div class="news-summary">
-      프랑스 중부에서 유럽 전역의 복음주의 기독 청년·청소년 수천 명이 참여하는 대규모 신앙 집회 '에코 2026'이 5월 15일 개막한다. 유럽 내 복음주의 청년 운동의 연대와 신앙 갱신을 목표로 하는 이 행사는 다양한 나라의 청년 사역자들이 함께 예배하고 훈련받는 자리가 될 것으로 기대를 모으고 있다.
+      목회데이터연구소가 발표한 「한국교회 트렌드 2026」에 따르면 올해 한국교회는 AI 목회 코파일럿, 심플처치, 강소교회, 호모 스피리추얼리스, 무속에 빠진 그리스도인, 서로 돌봄 공동체, 여성 교역자 문제, 헌금 패러다임의 변화, 이주민 선교 등을 10대 트렌드로 제시했습니다. AI와 미디어 환경 급변이 교회 목회에도 직접 영향을 미치고 있습니다.
     </div>
-    <div class="badge-row"><span class="badge badge-illus">✏ 설교 예화</span></div>
-    <div class="illus-box">
-      <strong>🎤 설교 예화 포인트</strong>
-      유럽은 오랜 기독교 문명의 발원지이지만, 오늘날 세속화의 물결 속에 교회가 쇠퇴해 왔습니다. 그럼에도 수천 명의 청년이 신앙을 선택하여 모인다는 것은, 하나님께서 포기하지 않으신 유럽을 향한 증거입니다. "마른 뼈도 살리시는 하나님"(겔 37장) 메시지와 연결하기 좋습니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://kr.christianitydaily.com/articles/131516/20260512/%EC%9C%A0%EB%9F%BD-%EB%B3%B5%EC%9D%8C%EC%A3%BC%EC%9D%98-%EC%B2%AD%EB%85%84%EB%93%A4-%ED%94%84%EB%9E%91%EC%8A%A4-%EC%A7%91%EA%B2%B0-%EC%97%90%EC%BD%94-2026-15%EC%9D%BC-%EA%B0%9C%EB%A7%89.htm" target="_blank">기독일보 (2026.05.12)</a></span>
+    <div class="news-source">출처: <a href="http://www.churchr.or.kr/news/articleView.html?idxno=20263" target="_blank">교갱뉴스 / 목회데이터</a></div>
+    <div class="tag-box">
+      <div class="tag-label">⛪ 설교 예화 포인트</div>
+      <div class="tag-content sermon">AI가 목회의 '조력자'(코파일럿)로 부상하는 시대, 그러나 성령의 역사는 AI가 대체할 수 없습니다. "사람이 마음으로 자기의 길을 계획할지라도 그의 걸음을 인도하시는 이는 여호와시니라"(잠 16:9) — 목회의 본질은 기술이 아닌 말씀과 기도 위에 있음을 강조할 수 있습니다.</div>
     </div>
   </div>
 
-  <!-- 기독 2 -->
-  <div class="news-card christian">
-    <div class="news-title">교회 재활성화 대회 — "한 영혼을 향한 기도와 변화가 부흥의 핵심"</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-christian">2</span>
+      소그룹 활성화·3040세대가 한국교회 성장의 핵심
+    </div>
     <div class="news-summary">
-      5월 13~15일 아름다운교회에서 열리는 '2026 교회 재활성화 대회'에서 고승희 목사는 한국 교회 부흥의 핵심을 "수천 명 집회가 아니라 단 한 영혼을 향한 진정한 기도와 변화"에 있다고 강조했다. 오늘(13일)부터 집회가 진행되며 침체된 한국 교회에 새로운 방향을 제시하는 자리가 될 전망이다.
+      2026 한국교회 분석 보고서에서 "소그룹의 활성화와 3040세대의 교회 참여가 성장의 핵심"이라는 분석이 제시됐습니다. 한국교회가 양적 성장에서 정체성·공동체 중심으로 전환하는 구조적 국면에서, 목장·셀 소그룹이 다시 주목받고 있습니다.
     </div>
-    <div class="badge-row"><span class="badge badge-illus">✏ 설교 예화</span></div>
-    <div class="illus-box">
-      <strong>🎤 설교 예화 포인트</strong>
-      "잃은 양 한 마리"(눅 15:4)의 비유가 떠오릅니다. 목자는 아흔아홉 마리를 두고 잃어버린 한 마리를 찾아 나섭니다. 교회의 진정한 부흥은 숫자의 확장이 아니라, 한 영혼을 향한 사랑의 행동에서 시작된다는 메시지를 전달하기에 적합한 사례입니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.christiantoday.co.kr/" target="_blank">크리스천투데이</a></span>
+    <div class="news-source">출처: <a href="https://www.kmcdaily.com/news/articleView.html?idxno=11902" target="_blank">웨슬리안타임즈</a></div>
+    <div class="tag-box">
+      <div class="tag-label">⛪ 설교 예화 포인트</div>
+      <div class="tag-content sermon">목장(소그룹)은 초대교회의 '집집마다 모임'(행 2:46)의 회복입니다. 3040세대가 소그룹에서 진정한 공동체를 경험할 때 교회는 살아납니다 — 목장 사역의 중요성과 연결 가능.</div>
     </div>
   </div>
 
-  <!-- 기독 3 -->
-  <div class="news-card christian">
-    <div class="news-title">한국교회 트렌드 2026 — "청년 이탈 막으려면 공동체 문화 바꿔야"</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-christian">3</span>
+      기독교선교횃불재단 2026년 1학기 횃불회 마무리 단계
+    </div>
     <div class="news-summary">
-      목회데이터연구소가 발표한 '한국교회 트렌드 2026' 보고서에 따르면, 코로나19 이후 교회 회복도는 91%에 그치고 있으며 61%의 교회가 아직 완전히 회복되지 못했다. 청년 이탈의 근본 원인은 권위적 수직 문화에 있으며, "왜 청년이 떠나느냐"는 질문을 넘어 "어떤 공동체를 만들 것인가"를 물어야 한다는 제언이 주목받고 있다.
+      기독교선교횃불재단이 한국교회 목회자와 선교사를 위한 '2026년 1학기 횃불회'를 3월 30일부터 5월 18일(내일)까지 진행합니다. 내일이 마지막 날로, 전국 목회자 영성 훈련 과정이 마무리될 예정입니다.
     </div>
-    <div class="badge-row"><span class="badge badge-illus">✏ 설교 예화</span></div>
-    <div class="illus-box">
-      <strong>🎤 설교 예화 포인트</strong>
-      초대교회는 "날마다 마음을 같이하여 성전에 모이고... 온 백성에게 칭송을 받으니"(행 2:46~47)라고 기록합니다. 수평적 공동체, 함께 나누는 문화가 전도의 도구였습니다. 목장 사역 등 소그룹 강화의 중요성을 설명할 때 활용 가능합니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="http://www.churchr.or.kr/news/articleView.html?idxno=20263" target="_blank">교갱뉴스 · 목회데이터연구소</a></span>
+    <div class="news-source">출처: <a href="https://www.christiandaily.co.kr/" target="_blank">기독일보</a></div>
+    <div class="tag-box">
+      <div class="tag-label">⛪ 설교 예화 포인트</div>
+      <div class="tag-content sermon">목회자의 영성 훈련은 선교와 목양의 원천입니다. 엘리야가 로뎀 나무 아래서 쉬게 하신 하나님(왕상 19:5-8)처럼, 지친 목회자들이 영적 충전을 받는 공간의 중요성을 예화로 활용 가능.</div>
     </div>
   </div>
 
-  <!-- 기독 4 -->
-  <div class="news-card christian">
-    <div class="news-title">치과의료선교회, 제9차 치과의료선교대회 — 5월 23~25일 서울 개최</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-christian">4</span>
+      제9차 치과의료선교대회 5월 23~25일 서울 개최 예정
+    </div>
     <div class="news-summary">
-      치과의료선교회가 주관하는 '제9차 치과의료선교대회'가 5월 23~25일 서울 강서구 국제청소년센터에서 열린다. 의료와 선교를 접목한 사역 훈련과 나눔의 장으로, 전문직 성도들의 선교 헌신을 격려하는 자리가 될 것으로 보인다.
+      제9차 치과의료선교대회가 5월 23일부터 25일까지 서울 강서구 국제청소년센터 유스호스텔에서 개최될 예정입니다. 국내외 의료선교에 관심 있는 성도들의 참여를 독려하고 있습니다.
     </div>
-    <div class="badge-row"><span class="badge badge-illus">✏ 설교 예화</span></div>
-    <div class="illus-box">
-      <strong>🎤 설교 예화 포인트</strong>
-      예수님은 고치시고(치유), 가르치시고(교육), 복음을 전하셨습니다(마 9:35). 의료 선교는 이 세 가지 사역을 하나로 통합하는 가장 효과적인 전도 방법 중 하나입니다. 전문인 선교의 가능성을 강조하는 메시지에 활용할 수 있습니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.kidok.com" target="_blank">주간기독신문</a></span>
+    <div class="news-source">출처: <a href="https://www.christiandaily.co.kr/" target="_blank">기독일보</a></div>
+    <div class="tag-box">
+      <div class="tag-label">⛪ 설교 예화 포인트</div>
+      <div class="tag-content sermon">의료 선교는 예수님의 치유 사역(마 9:35)의 연장입니다. "몸을 고치는 것"을 통해 "영혼을 구원하는 것"으로 나아가는 전인적 선교의 모델 — 교회의 이웃 섬김 사역을 격려하는 예화로 활용 가능.</div>
     </div>
   </div>
 
+  <!-- 세계 정세 뉴스 -->
+  <div class="section-header world">
+    <div class="icon">🌏</div>
+    <div class="label">세계 정세 뉴스</div>
+    <div class="count">4건</div>
+  </div>
 
-  <!-- ===== 세계 정세 뉴스 ===== -->
-  <div class="section-header sec-world">🌍 세계 정세 뉴스</div>
-
-  <!-- 세계 1 -->
-  <div class="news-card world">
-    <div class="news-title">미국 4월 CPI 예상치 상회 — 호르무즈 해협 긴장에 유가 상승·증시 하락</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-world">1</span>
+      트럼프-시진핑 미중 정상회담 성사: 호르무즈·이란 핵 합의
+    </div>
     <div class="news-summary">
-      미국의 4월 소비자물가지수(CPI)가 예상치를 웃도는 것으로 나타났다. 여기에 중동 핵심 원유 수송로인 호르무즈 해협의 통행 차질 우려까지 겹치면서 국제 유가가 오르고 세계 주요 증시는 하락세를 보였다. 인플레이션 재점화 우려가 연준의 금리 정책에 불확실성을 더하고 있다.
+      트럼프 미국 대통령이 5월 14~15일 중국 베이징을 방문해 시진핑 주석과 정상회담을 가졌습니다. 약 10년 만의 미국 대통령 방중으로 관심을 모았으며, 이란 핵 문제 및 호르무즈 해협 개방에 대한 양국 공동 입장을 도출했습니다. 회담 마지막 날 트럼프는 공산당 심장부 중난하이에 초청받아 시진핑과 정원을 산책하며 관계 정상화 신호를 보냈습니다.
     </div>
-    <div class="opinion-box">
-      <div class="op-item op-pos">
-        <div class="op-label">👍 긍정 여론</div>
-        "인플레이션 지표 공개로 시장이 현실을 직시하게 되었다. 적절한 금리 유지가 장기적으로 경제 안정에 기여할 것."
-      </div>
-      <div class="op-item op-neg">
-        <div class="op-label">👎 비판 여론</div>
-        "생활비·에너지 비용 상승이 서민 경제를 직격하고 있다. 중동 불안을 방치한 외교 실패의 결과."
-      </div>
+    <div class="news-source">출처: <a href="https://www.sedaily.com/article/20042089" target="_blank">서울경제</a> · <a href="https://m.sedaily.com/amparticle/20044786" target="_blank">서울경제(중난하이)</a></div>
+    <div class="tag-box">
+      <div class="tag-label">👍 긍정 여론</div>
+      <div class="tag-content pro">미중 대화 재개로 글로벌 경제 불확실성 완화 기대. 양국 무역 정상화가 한국 수출에도 긍정적 영향 전망.</div>
     </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.voakorea.com/z/2698" target="_blank">VOA 한국어</a></span>
+    <div class="tag-box">
+      <div class="tag-label">👎 비판 여론</div>
+      <div class="tag-content con">트럼프의 대중국 '유화 제스처'가 동맹국(한국·일본 등)에 대한 압박 카드로 활용될 수 있다는 우려. 이란 합의의 실효성도 불투명하다는 지적.</div>
     </div>
   </div>
 
-  <!-- 세계 2 -->
-  <div class="news-card world">
-    <div class="news-title">크루즈선 MV혼디우스서 한타바이러스 집단 감염 — 3명 사망, 세계 보건 당국 추적</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-world">2</span>
+      한미 국방장관 회담: 동맹 신뢰 재확인
+    </div>
     <div class="news-summary">
-      크루즈선 MV혼디우스에서 한타바이러스 집단 감염 사태가 발생해 최소 3명이 사망했다. 전 세계 보건 당국은 해당 선박 승객 전원에 대한 추적 감시를 시작했으며, 선내 감염 경로와 확산 여부를 조사 중이다. 한타바이러스는 쥐 등 설치류를 통해 전파되는 바이러스성 감염병이다.
+      한국과 미국 국방부 장관이 미국에서 만나 양국 동맹의 건재함을 재확인했습니다. 양 장관은 한반도 안보 상황과 북한 위협에 대한 공동 대응 방침을 재확인하고, 미중 정상회담 결과가 한반도 안보에 미치는 영향도 함께 평가했습니다.
     </div>
-    <div class="opinion-box">
-      <div class="op-item op-pos">
-        <div class="op-label">👍 긍정 여론</div>
-        "WHO와 각국 보건 당국이 신속히 대응하여 확산을 차단하려는 노력을 보이고 있다."
-      </div>
-      <div class="op-item op-neg">
-        <div class="op-label">👎 비판 여론</div>
-        "밀폐 공간인 크루즈선의 감염 취약성이 또다시 드러났다. 출항 전 방역 기준이 허술했다는 비판."
-      </div>
+    <div class="news-source">출처: <a href="https://www.rfa.org/korean/in-focus/2026/05/12/south-korea-us-defense-ministers-meeting/" target="_blank">자유아시아방송(RFA)</a></div>
+    <div class="tag-box">
+      <div class="tag-label">👍 긍정 여론</div>
+      <div class="tag-content pro">한미 동맹 재확인으로 한반도 안보 불안 완화. 미중 회담 속에서도 한미 협력 유지 신호.</div>
     </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.voakorea.com/z/2698" target="_blank">VOA 한국어</a></span>
+    <div class="tag-box">
+      <div class="tag-label">👎 비판 여론</div>
+      <div class="tag-content con">미중 화해 분위기 속에서 주한미군 비용 분담 재협상 압박이 강화될 수 있다는 우려의 목소리.</div>
     </div>
   </div>
 
-  <!-- 세계 3 -->
-  <div class="news-card world">
-    <div class="news-title">미국 초당파 상원 대표단, 베이징 방문 — 미중 협력·정상 소통 촉구</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-world">3</span>
+      삼성전자 DS 파업 임박: 노사 대화 촉구
+    </div>
     <div class="news-summary">
-      미국 의회 초당파 상원 대표단이 베이징에서 중국 고위 당국자 3명과 회담을 가졌다. 양측은 미중 정상 간의 솔직한 소통의 필요성에 공감하며, 양국 협력 확대를 촉구했다. 무역 갈등과 대만 문제 등 현안 속에서도 외교 채널 유지의 중요성을 강조한 회담으로 평가된다.
+      삼성전자 반도체(DS) 사장단이 김영훈 고용노동부 장관과 함께 오는 21일 예고된 총파업을 앞두고 노조 측을 직접 찾아 대화 재개를 호소했습니다. 삼성 DS부문이 1분기 역대 최대 실적을 낸 직후 파업 위기가 고조되어 주목받고 있습니다.
     </div>
-    <div class="opinion-box">
-      <div class="op-item op-pos">
-        <div class="op-label">👍 긍정 여론</div>
-        "대화 채널 유지가 중요하다. 의회 차원의 접촉이 정상 외교의 물꼬를 틀 수 있다."
-      </div>
-      <div class="op-item op-neg">
-        <div class="op-label">👎 비판 여론</div>
-        "실질적 성과 없는 외교적 제스처에 불과하다. 중국의 인권·대만 문제는 여전히 외면받고 있다."
-      </div>
+    <div class="news-source">출처: <a href="https://www.cliktoday.com/2026/05/20260514-today-news.html" target="_blank">오늘의클릭</a></div>
+    <div class="tag-box">
+      <div class="tag-label">👍 긍정 여론</div>
+      <div class="tag-content pro">사측의 직접 대화 시도는 긍정적. AI 반도체 수요 폭발 시기에 파업보다 협상이 노사 모두에 이익.</div>
     </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://news.daum.net/global" target="_blank">다음뉴스 국제</a></span>
+    <div class="tag-box">
+      <div class="tag-label">👎 비판 여론</div>
+      <div class="tag-content con">사상 최대 실적에도 처우 개선이 미흡하다는 노조 입장. 성과 배분의 공정성 문제 제기.</div>
     </div>
   </div>
 
-  <!-- 세계 4 -->
-  <div class="news-card world">
-    <div class="news-title">러시아, 북한군 포로 송환 두 차례 요청 — 우크라 "한국행은 민감한 문제"</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-world">4</span>
+      서울 연등회 5월 16~17일 성대 개최: 종로 일대 행렬
+    </div>
     <div class="news-summary">
-      러시아가 우크라이나 전선에서 생포된 북한군 병사들의 송환을 두 차례 공식 요청한 것으로 알려졌다. 우크라이나는 이들 포로의 처우와 한국 이송 가능성에 대해 "매우 민감한 문제"라는 입장을 밝혔다. 북한군의 러시아 지원 파병이 확인된 가운데, 한반도 안보와 직결된 사안으로 주목받고 있다.
+      유네스코 인류무형문화유산으로 지정된 '연등회'가 5월 16~17일 이틀간 종로 일대에서 개최됩니다. 약 2만 명의 시민과 60여 개 단체가 참여하는 장엄한 행렬로, 오늘(17일) 서울 도심 교통에 영향이 있을 수 있습니다.
     </div>
-    <div class="opinion-box">
-      <div class="op-item op-pos">
-        <div class="op-label">👍 긍정 여론</div>
-        "북한군 포로 문제를 통해 북한의 불법 파병 실상이 국제 사회에 더욱 명확히 드러나고 있다."
-      </div>
-      <div class="op-item op-neg">
-        <div class="op-label">👎 비판 여론</div>
-        "한국 정부가 외교적으로 명확한 입장을 취하지 않는다는 비판이 있다. 남북 관계에 또 다른 복잡성을 더하고 있다."
-      </div>
+    <div class="news-source">출처: 연합뉴스 / 서울시</div>
+    <div class="tag-box">
+      <div class="tag-label">👍 긍정 여론</div>
+      <div class="tag-content pro">전통문화 계승과 관광 활성화 측면에서 긍정적 평가.</div>
     </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://kr.christianitydaily.com/articles/131502/20260511/%EB%9F%AC%EC%8B%9C%EC%95%84-%EC%83%9D%ED%8F%AC%EB%90%9C-%EB%B6%81%ED%95%9C%EA%B5%B0-%ED%8F%AC%EB%A1%9C-%EC%86%A1%ED%99%98-%EB%91%90-%EC%B0%A8%EB%A1%80-%EC%9A%94%EC%B2%AD-%EC%9A%B0%ED%81%AC%EB%9D%BC-%ED%95%9C%EA%B5%AD%ED%96%89.htm" target="_blank">기독일보 (2026.05.11)</a></span>
+    <div class="tag-box">
+      <div class="tag-label">👎 비판 여론</div>
+      <div class="tag-content con">일요일 교회 출석 성도들의 도심 이동에 교통 불편 예상. 주일 예배 참석 시 우회로 이용 권장.</div>
     </div>
   </div>
 
+  <!-- AI 업계 뉴스 -->
+  <div class="section-header ai">
+    <div class="icon">🤖</div>
+    <div class="label">AI 업계 뉴스</div>
+    <div class="count">4건</div>
+  </div>
 
-  <!-- ===== AI 업계 뉴스 ===== -->
-  <div class="section-header sec-ai">🤖 AI 업계 뉴스</div>
-
-  <!-- AI 1 -->
-  <div class="news-card ai">
-    <div class="news-title">AI·반도체 열풍 — 코스피 7,000선 돌파, 삼성 HBM3E 양산 확대</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-ai">1</span>
+      GPT-5.5 출시: 무료 사용자도 최신 AI 이용 가능
+    </div>
     <div class="news-summary">
-      AI 및 반도체 산업의 열풍으로 코스피가 사상 처음으로 7,000선을 돌파했다. 삼성전자는 고대역폭 메모리(HBM3E) 양산을 확대하며 AI 메모리 시장 선점에 나서고 있다. AI 인프라 투자 증가가 반도체 수요를 폭발적으로 끌어올리면서 국내 IT·반도체 업종이 증시를 주도하고 있다.
+      OpenAI의 GPT-5.5가 4월 23일 출시되어 ChatGPT Plus의 기본 모델로 자동 전환되었습니다. 5월 5일부터는 GPT-5.5 Instant가 무료 사용자의 기본 모델이 되어, 이제 누구나 별도 요금 없이 고성능 AI를 이용할 수 있게 됐습니다.
     </div>
-    <div class="impact-box">
-      <strong>👥 일반인 영향</strong>
-      퇴직연금·주식 투자자들에게는 반도체·AI 관련 ETF 등이 수익률을 높이는 긍정적 시기입니다. 그러나 AI 기기·서비스 비용이 지속 증가할 경우 정보 격차(디지털 디바이드)가 더 커질 수 있어 경제적 취약 계층에 대한 관심도 필요합니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.cliktoday.com/2026/05/20260512-today-news.html" target="_blank">오늘의 클릭 (2026.05.12)</a></span>
+    <div class="news-source">출처: <a href="https://findskill.ai/ko/blog/ai-gudog-gagyeog-bigyo-2026-weol-2man8ceonweon-jinjja-gaci-isseulgga/" target="_blank">FindSkill.ai</a></div>
+    <div class="tag-box">
+      <div class="tag-label">📱 일반인 영향</div>
+      <div class="tag-content impact">무료로도 수준 높은 AI 서비스 이용 가능 → 교회 행정, 설교 준비, 성경 공부 자료 제작 등에 활용 기회 확대. 성도들에게 AI 리터러시 교육 필요성 증가.</div>
     </div>
   </div>
 
-  <!-- AI 2 -->
-  <div class="news-card ai">
-    <div class="news-title">생성형 AI, 3만 2천 개 일자리 감소 — AI 인력 수요는 공급 3.2배 초과</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-ai">2</span>
+      Claude Opus 4.7 출시: 더 강력한 글쓰기·추론 AI
+    </div>
     <div class="news-summary">
-      메타·마이크로소프트·아마존 등 빅테크 기업에서 최근 수주 사이 3만 2천여 개 일자리가 사라졌으며, 2026년 기술 산업 해고의 절반이 AI 주도 구조조정에서 비롯됐다. 반면, AI 역량을 보유한 인재에 대한 수요는 공급의 3.2배를 웃돌며 신규 채용 공고에서 AI 기술 요건은 세 배 가까이 늘었다.
+      Anthropic이 4월 16일 Claude Opus 4.7을 출시했습니다. Max 플랜 전용이며, 플로우 차트·데이터 차트·인터랙티브 다이어그램 등 시각화 기능이 강화되었습니다. Claude는 가장 자연스러운 인간적 글쓰기 스타일로 평가받으며, 설교문·문서 작성 분야에서 특히 강점을 보입니다.
     </div>
-    <div class="impact-box">
-      <strong>👥 일반인 영향</strong>
-      단순 반복 업무 종사자들은 AI 대체 위험에 노출되고 있습니다. 반면, AI 도구를 배우고 활용하는 역량을 갖춘다면 새로운 기회를 얻을 수 있습니다. 교회 청년들에게 AI 리터러시 교육과 직업 전환 지원에 관심을 기울일 필요가 있습니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.kjob.news/news/487771" target="_blank">전국인력신문</a></span>
+    <div class="news-source">출처: <a href="https://www.myaegiswealth.com/rankings" target="_blank">AI인사이트</a> · <a href="https://findskill.ai/ko/blog/ai-gudog-gagyeog-bigyo-2026-weol-2man8ceonweon-jinjja-gaci-isseulgga/" target="_blank">FindSkill.ai</a></div>
+    <div class="tag-box">
+      <div class="tag-label">📱 일반인 영향</div>
+      <div class="tag-content impact">목회자 설교 준비, 보고서·기도문 작성에 Claude가 최적 AI로 평가받음. 자연스러운 한국어 문체로 교회 콘텐츠 제작 지원 가능.</div>
     </div>
   </div>
 
-  <!-- AI 3 -->
-  <div class="news-card ai">
-    <div class="news-title">구글, 음악 생성 AI '리리아 3' 출시 — 텍스트·영상으로 고품질 음악 생성</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-ai">3</span>
+      Gemini 3.1 Flash-Lite GA: 무료 사용 한도 대폭 확대
+    </div>
     <div class="news-summary">
-      구글이 텍스트와 영상 입력을 기반으로 고품질 음악을 생성하는 AI 모델 '리리아 3(Lyria 3)'를 공개했다. 이전 버전 대비 보컬 성능이 크게 향상되어, 가사와 장르를 입력하면 사람이 부른 것에 가까운 음악을 자동 생성한다. 음악·미디어 산업에 큰 변화가 예상된다.
+      Google의 Gemini 3.1 Flash-Lite GA가 5월 7일 출시되어 무료 사용 한도가 하루 1,500건 요청으로 대폭 확대됐습니다. 또한 Gemini 3.1 Pro가 국내 테스트에서 수능 전 과목 만점을 달성했다는 평가를 받아 화제입니다.
     </div>
-    <div class="impact-box">
-      <strong>👥 일반인 영향</strong>
-      교회 찬양팀이나 미디어 사역에서 배경 음악이나 홍보 영상 BGM 제작에 활용 가능성이 있습니다. 다만, 저작권 문제와 음악인들의 생계 위협에 대한 윤리적 논의도 함께 이루어져야 합니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.aitimes.kr/" target="_blank">인공지능신문</a></span>
+    <div class="news-source">출처: <a href="https://carat.im/blog/generative-ai-rankings-comparison" target="_blank">캐럿 AI 블로그</a></div>
+    <div class="tag-box">
+      <div class="tag-label">📱 일반인 영향</div>
+      <div class="tag-content impact">무료로 하루 1,500번까지 AI 이용 가능 → 교회 사무, 자녀 학습 지원 등 생활 밀착형 AI 활용 폭 확대. 다만 정보 검증 없는 AI 의존은 경계 필요.</div>
     </div>
   </div>
 
-  <!-- AI 4 -->
-  <div class="news-card ai">
-    <div class="news-title">EU, 교육 분야 AI 윤리 지침 2026년판 발표 — GDPR·AI법 결합 최초 문서</div>
+  <div class="news-card">
+    <div class="news-title">
+      <span class="news-num num-ai">4</span>
+      삼성전자 AI 반도체로 사상 최대 실적: 매출 133.9조, 영업익 57.2조
+    </div>
     <div class="news-summary">
-      유럽연합 집행위원회가 교육자를 위한 'AI 및 데이터 윤리적 사용 지침 2026년판'을 발표했다. GDPR과 EU AI법을 교육 현장에 결합한 최초의 공식 지침으로, 학생 데이터 보호와 AI 활용 기준을 명확히 했다. 각국의 AI 교육 정책 수립에 영향을 미칠 것으로 전망된다.
+      삼성전자가 AI 반도체 수요 폭발을 기반으로 2026년 1분기 매출 133.9조 원, 영업이익 57.2조 원이라는 사상 최대 실적을 기록했습니다. HBM(고대역폭메모리) 및 AI 서버용 반도체 수요가 실적을 견인한 것으로 분석됩니다.
     </div>
-    <div class="impact-box">
-      <strong>👥 일반인 영향</strong>
-      자녀를 둔 학부모들은 학교에서 AI가 어떻게 활용되고 있는지, 자녀 데이터가 어떻게 보호되는지 관심을 가져야 합니다. 교회 내 교육 사역에서도 AI 도구 사용 시 개인 정보 보호 기준을 적용하는 것이 점점 더 중요해지고 있습니다.
-    </div>
-    <div class="news-footer">
-      <span class="news-source">출처: <a href="https://www.koreaiin.com/news/900887" target="_blank">한국IT산업뉴스</a></span>
+    <div class="news-source">출처: <a href="https://issue.cyberbabarian.com/ai-portal-stocks-2026-may/" target="_blank">21세기이슈</a> · <a href="https://koreaai.or.kr/dailynews/20260510/" target="_blank">한국AI융합교육협회</a></div>
+    <div class="tag-box">
+      <div class="tag-label">📱 일반인 영향</div>
+      <div class="tag-content impact">AI 반도체 호황으로 관련 종목 상승세. 그러나 파업 리스크가 변수 — 성도들 중 삼성 종사자들에게 기도 제목이 될 수 있습니다.</div>
     </div>
   </div>
 
 </div>
 
 <footer>
-  자동 생성 뉴스 브리핑 · 2026년 5월 13일 (수) · 박정원 목사님
+  자동 생성 · 2026년 5월 17일 (일) · 박정원 목사님 전용 뉴스 브리핑
 </footer>
 
 </body>

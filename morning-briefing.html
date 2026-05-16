@@ -3,49 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>아침 브리핑 – 2026년 5월 13일 (수)</title>
+<title>아침 브리핑 - 2026년 5월 17일 (일)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    font-family: 'Malgun Gothic', '맑은 고딕', Apple SD Gothic Neo, sans-serif;
     background: #f0f2f5;
-    color: #222;
+    color: #333;
     min-height: 100vh;
   }
   header {
     background: #1a237e;
-    color: #fff;
+    color: white;
     padding: 20px 16px 16px;
     text-align: center;
   }
   header .date-label {
     font-size: 13px;
-    opacity: 0.8;
+    opacity: 0.75;
     letter-spacing: 1px;
     margin-bottom: 4px;
   }
   header h1 {
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: 2px;
+    letter-spacing: -0.5px;
   }
-  header .greeting {
-    font-size: 13px;
-    opacity: 0.75;
+  header .subtitle {
+    font-size: 12px;
+    opacity: 0.65;
     margin-top: 4px;
   }
   .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 16px 12px 40px;
+    padding: 16px;
   }
   .section-title {
     font-size: 12px;
     font-weight: 700;
     color: #1a237e;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin: 20px 0 8px;
+    margin: 20px 0 10px;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -57,252 +57,251 @@
     background: #c5cae9;
   }
   .card {
-    background: #fff;
+    background: white;
     border-radius: 12px;
     padding: 14px 16px;
     margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(26,35,126,0.07);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   }
-  /* 일정 */
-  .schedule-empty {
-    color: #888;
-    font-size: 14px;
-    text-align: center;
-    padding: 8px 0;
-  }
-  /* 이메일 */
-  .email-item {
+  /* 일정 카드 */
+  .event-item {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .event-item:last-child { border-bottom: none; }
+  .event-time {
+    min-width: 70px;
+    font-size: 12px;
+    color: #1a237e;
+    font-weight: 600;
+    padding-top: 2px;
+  }
+  .event-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+  }
+  .event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3949ab;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  /* 이메일 카드 */
+  .email-item {
+    padding: 10px 0;
     border-bottom: 1px solid #f0f0f0;
   }
   .email-item:last-child { border-bottom: none; }
-  .email-badge {
-    min-width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
+  .email-sender {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 3px;
   }
-  .badge-red { background: #c62828; }
-  .badge-blue { background: #1565c0; }
-  .badge-orange { background: #e65100; }
-  .badge-gray { background: #757575; }
-  .email-content { flex: 1; }
   .email-subject {
     font-size: 13px;
     font-weight: 600;
-    color: #1a1a2e;
-    margin-bottom: 2px;
-    line-height: 1.4;
+    color: #333;
+    margin-bottom: 4px;
   }
-  .email-meta {
-    font-size: 11px;
-    color: #888;
+  .email-snippet {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
   }
-  .tag {
+  .badge {
     display: inline-block;
+    padding: 2px 7px;
+    border-radius: 20px;
     font-size: 10px;
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-weight: 600;
-    margin-left: 4px;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
   }
-  .tag-urgent { background: #fde8e8; color: #c62828; }
-  .tag-info { background: #e8eaf6; color: #1a237e; }
-  /* 할 일 */
+  .badge-alert { background: #fce4ec; color: #c62828; }
+  .badge-info { background: #e3f2fd; color: #1565c0; }
+  /* 할 일 카드 */
   .todo-item {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 0;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 0;
     border-bottom: 1px solid #f0f0f0;
   }
   .todo-item:last-child { border-bottom: none; }
   .todo-num {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
+    width: 26px;
+    height: 26px;
     background: #1a237e;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
+    color: white;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
     flex-shrink: 0;
-    margin-top: 1px;
   }
   .todo-text {
     font-size: 14px;
+    color: #222;
     line-height: 1.5;
-    color: #1a1a2e;
   }
   .todo-sub {
-    font-size: 12px;
-    color: #666;
+    font-size: 11px;
+    color: #888;
     margin-top: 2px;
   }
-  /* 말씀 */
+  /* 말씀 카드 */
   .verse-card {
-    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
     border-radius: 12px;
-    padding: 16px;
+    padding: 18px 16px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(26,35,126,0.2);
+    text-align: center;
   }
   .verse-text {
     font-size: 15px;
     line-height: 1.7;
-    font-style: italic;
     margin-bottom: 8px;
+    font-style: italic;
   }
   .verse-ref {
     font-size: 12px;
-    opacity: 0.8;
-    text-align: right;
+    opacity: 0.75;
   }
   footer {
     text-align: center;
+    padding: 20px;
     font-size: 11px;
     color: #aaa;
-    margin-top: 30px;
   }
 </style>
 </head>
 <body>
+
 <header>
-  <div class="date-label">2026년 5월 13일 수요일</div>
-  <h1>📋 아침 브리핑</h1>
-  <div class="greeting">박정원 목사님, 좋은 아침입니다. 주님의 은혜로 오늘 하루를 시작합니다.</div>
+  <div class="date-label">2026년 5월 17일 일요일</div>
+  <h1>🌅 아침 브리핑</h1>
+  <div class="subtitle">박정원 목사님을 위한 오늘의 요약</div>
 </header>
 
 <div class="container">
 
   <!-- 오늘의 말씀 -->
-  <div class="section-title">✝ 오늘의 말씀</div>
   <div class="verse-card">
-    <div class="verse-text">
-      "주 예수를 믿으라 그리하면 너와 네 집이 구원을 받으리라"
-    </div>
-    <div class="verse-ref">— 사도행전 16:31</div>
+    <div class="verse-text">"내가 네게 명령한 것이 아니냐 강하고 담대하라 두려워하지 말며 놀라지 말라 네가 어디로 가든지 네 하나님 여호와가 너와 함께 하느니라"</div>
+    <div class="verse-ref">여호수아 1:9</div>
   </div>
 
   <!-- 오늘 일정 -->
   <div class="section-title">📅 오늘 일정</div>
   <div class="card">
-    <div class="schedule-empty">
-      📭 오늘 등록된 일정이 없습니다.<br>
-      <small style="color:#aaa;">Google 캘린더 확인 결과 일정 없음</small>
+    <div class="event-item">
+      <div class="event-time">06:50</div>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-title">설교 MP3 녹음</div>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-time">08:20</div>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-title">2부 사회</div>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-time">08:35</div>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-title">교구 성도 인사</div>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-time">11:11</div>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-title">설교 보내기</div>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-time">11:40</div>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-title">스시·떡볶이 주문 (오전 6:40 주문)</div>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-time">14:00</div>
+      <div class="event-dot"></div>
+      <div>
+        <div class="event-title">아버지 택시 예약</div>
+      </div>
     </div>
   </div>
 
   <!-- 이메일 요약 -->
   <div class="section-title">📬 최근 이메일 요약</div>
-
   <div class="card">
-
-    <!-- 기도컨퍼런스 등록 -->
     <div class="email-item">
-      <div class="email-badge badge-blue">기도</div>
-      <div class="email-content">
-        <div class="email-subject">
-          2026 기도컨퍼런스 사전 등록 새 응답
-          <span class="tag tag-urgent">중요</span>
-        </div>
-        <div class="email-meta">Google Forms · 총 3건의 새로운 응답 접수 (5월 12일)</div>
+      <div class="email-sender">Firebase (Google)</div>
+      <div class="email-subject">
+        Firebase 보안 경고 <span class="badge badge-alert">⚠️ 긴급</span>
       </div>
+      <div class="email-snippet">prayer-ministry-2026, prayer-conference-2026, team9, sri-lanka-mission-202, pastor-cho-bible-walk 등 5개 Firebase 실시간 데이터베이스에 보안 규칙이 없어 모든 사용자가 읽기/쓰기가 가능한 상태입니다. 빠른 보안 설정이 필요합니다.</div>
     </div>
-
-    <!-- Firebase 보안 경고 -->
     <div class="email-item">
-      <div class="email-badge badge-red">⚠</div>
-      <div class="email-content">
-        <div class="email-subject">
-          Firebase 데이터베이스 보안 경고 (다수)
-          <span class="tag tag-urgent">조치 필요</span>
-        </div>
-        <div class="email-meta">
-          Firebase · 5개 DB에 보안 취약 규칙 감지<br>
-          <span style="font-size:11px; color:#c62828;">
-            prayer-conference-2026 / pastor-cho-bible-walk / prayer-ministry-2026 / sri-lanka-mission / team9<br>
-            → 모든 사용자 읽기·쓰기 허용 상태 (보안 규칙 수정 필요)
-          </span>
-        </div>
+      <div class="email-sender">Google Calendar</div>
+      <div class="email-subject">
+        오늘 일정 알림 <span class="badge badge-info">일정</span>
       </div>
+      <div class="email-snippet">오늘 일정 6건에 대한 Google Calendar 알림 이메일이 수신되었습니다. (설교 mp3 녹음, 2부 사회, 교구 성도 인사, 설교 보내기, 아버지 택시 예약 등)</div>
     </div>
-
-    <!-- 목장 기도제목 -->
     <div class="email-item">
-      <div class="email-badge badge-blue">목장</div>
-      <div class="email-content">
-        <div class="email-subject">목장 기도제목 확인 일정 알림</div>
-        <div class="email-meta">Google Calendar · 5월 12일(화) 오후 7시~8시 (어제 완료)</div>
-      </div>
+      <div class="email-sender">Reddit (noreply)</div>
+      <div class="email-subject">Saudia Airline OTP 관련 이메일</div>
+      <div class="email-snippet">Reddit r/Flights에서 Saudia Airlines OTP 관련 내용이 포함된 이메일이 수신되었습니다. 본인이 요청하지 않으셨다면 무시하셔도 됩니다.</div>
     </div>
-
-    <!-- 담임목사 로밍 -->
-    <div class="email-item">
-      <div class="email-badge badge-gray">일정</div>
-      <div class="email-content">
-        <div class="email-subject">담임목사님 로밍 일정</div>
-        <div class="email-meta">Google Calendar · 5월 12일(화) 오전 9시~10시 (어제 완료)</div>
-      </div>
-    </div>
-
-    <!-- AliExpress -->
-    <div class="email-item">
-      <div class="email-badge badge-gray">쇼핑</div>
-      <div class="email-content">
-        <div class="email-subject">AliExpress 리뷰 요청 (2건)</div>
-        <div class="email-meta">AliExpress · 쇼핑 후기 작성 요청</div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- 오늘 할 일 -->
-  <div class="section-title">✅ 오늘의 할 일</div>
+  <!-- 오늘의 할 일 -->
+  <div class="section-title">✅ 오늘의 우선 할 일</div>
   <div class="card">
-
     <div class="todo-item">
       <div class="todo-num">1</div>
       <div>
-        <div class="todo-text">Firebase 데이터베이스 보안 규칙 점검 및 수정</div>
-        <div class="todo-sub">5개 DB(prayer-conference, pastor-cho-bible-walk, prayer-ministry, sri-lanka-mission, team9) 보안 규칙이 취약한 상태입니다. Firebase 콘솔에서 인증된 사용자만 접근 가능하도록 규칙을 설정해야 합니다.</div>
+        <div class="todo-text">Firebase 보안 규칙 즉시 점검</div>
+        <div class="todo-sub">5개 DB에 안전하지 않은 규칙 감지 — Google Firebase Console에서 읽기/쓰기 규칙 제한 설정 필요</div>
       </div>
     </div>
-
     <div class="todo-item">
       <div class="todo-num">2</div>
       <div>
-        <div class="todo-text">2026 기도컨퍼런스 사전 등록 현황 확인</div>
-        <div class="todo-sub">최근 3건의 새 응답이 접수되었습니다. Google Forms에서 등록 현황을 확인하고, 필요한 경우 참가자에게 안내 메일을 발송하세요.</div>
+        <div class="todo-text">설교 MP3 녹음 완료 후 설교 파일 보내기</div>
+        <div class="todo-sub">오전 6:50 녹음 → 오전 11:11까지 설교 보내기 완료</div>
       </div>
     </div>
-
     <div class="todo-item">
       <div class="todo-num">3</div>
       <div>
-        <div class="todo-text">주일 설교 및 목장 사역 준비</div>
-        <div class="todo-sub">이번 주일 설교 원고와 목장 사역지 준비를 점검하세요. 수요일은 설교 본문 묵상과 예화 구성에 집중하기 좋은 날입니다.</div>
+        <div class="todo-text">아버지 택시 예약 확인</div>
+        <div class="todo-sub">오후 2:00 출발 — 예약 확인 및 시간 맞춰 준비</div>
       </div>
     </div>
-
   </div>
 
 </div>
 
 <footer>
-  자동 생성 브리핑 · 2026년 5월 13일 (수) · 박정원 목사님
+  자동 생성 · 2026년 5월 17일 (일) · 박정원 목사님 전용 브리핑
 </footer>
+
 </body>
 </html>
