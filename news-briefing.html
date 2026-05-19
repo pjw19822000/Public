@@ -3,232 +3,368 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>뉴스 브리핑 - 2026년 5월 19일</title>
+<title>뉴스 브리핑 - 2026년 5월 20일</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; background: #f5f5f5; color: #333; }
-  .header {
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: #f4f6fb;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+  header {
     background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%);
     color: white;
-    padding: 24px 20px;
+    padding: 24px 20px 20px;
     text-align: center;
   }
-  .header h1 { font-size: 1.4em; font-weight: bold; margin-bottom: 4px; }
-  .header .subtitle { font-size: 0.9em; opacity: 0.85; }
-  .section-header {
-    padding: 12px 16px;
-    font-size: 1em;
-    font-weight: bold;
-    color: white;
+  header .top-label { font-size: 12px; opacity: 0.75; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+  header .sub { font-size: 13px; opacity: 0.8; margin-top: 6px; }
+  .container { max-width: 680px; margin: 0 auto; padding: 18px 14px 50px; }
+  .section-label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    margin: 20px 0 12px;
   }
-  .section-christian .section-header { background: #37474f; }
-  .section-world .section-header { background: #1b5e20; }
-  .section-ai .section-header { background: #4a148c; }
-  .container { max-width: 600px; margin: 0 auto; }
-  .section { margin-bottom: 16px; background: white; }
-  .news-item { padding: 16px; border-bottom: 1px solid #f0f0f0; }
-  .news-item:last-child { border-bottom: none; }
-  .news-title { font-size: 0.95em; font-weight: bold; line-height: 1.5; margin-bottom: 6px; color: #1a1a1a; }
-  .news-summary { font-size: 0.85em; color: #555; line-height: 1.6; margin-bottom: 8px; }
-  .news-source { font-size: 0.75em; color: #1565c0; text-decoration: none; }
-  .news-source:hover { text-decoration: underline; }
-  .tag { display: inline-block; font-size: 0.72em; padding: 2px 8px; border-radius: 10px; font-weight: bold; margin-bottom: 6px; }
-  .tag-sermon { background: #fff3e0; color: #e65100; }
-  .tag-positive { background: #e8f5e9; color: #2e7d32; }
-  .tag-critical { background: #ffebee; color: #c62828; }
-  .tag-impact { background: #e3f2fd; color: #1565c0; }
-  .opinion-box {
+  .section-label .icon-badge {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .christian .icon-badge { background: #e8f5e9; }
+  .world .icon-badge { background: #e3f2fd; }
+  .ai .icon-badge { background: #f3e5f5; }
+  .section-label h2 { font-size: 17px; font-weight: 800; }
+  .christian h2 { color: #2e7d32; }
+  .world h2 { color: #1565c0; }
+  .ai h2 { color: #6a1b9a; }
+  .news-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .news-card-inner { padding: 16px 18px; }
+  .news-source {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+    opacity: 0.65;
+  }
+  .news-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #1a1a2e;
+  }
+  .news-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .news-title a:hover { text-decoration: underline; }
+  .news-summary {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 20px;
+  }
+  .tag-illus { background: #fff8e1; color: #f57f17; }
+  .tag-pos { background: #e8f5e9; color: #2e7d32; }
+  .tag-neg { background: #fce4ec; color: #c62828; }
+  .tag-impact { background: #ede7f6; color: #4527a0; }
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 4px 0 10px;
+  }
+  .extra-box {
+    border-radius: 10px;
+    padding: 10px 13px;
+    font-size: 12.5px;
+    line-height: 1.65;
     margin-top: 8px;
-    padding: 8px 10px;
-    border-radius: 6px;
-    font-size: 0.8em;
-    line-height: 1.5;
   }
-  .opinion-positive { background: #e8f5e9; border-left: 3px solid #4caf50; color: #2e7d32; }
-  .opinion-critical { background: #ffebee; border-left: 3px solid #ef5350; color: #c62828; margin-top: 6px; }
-  .sermon-box {
-    margin-top: 8px;
-    padding: 8px 10px;
-    background: #fff8e1;
-    border-left: 3px solid #ffc107;
-    border-radius: 6px;
-    font-size: 0.8em;
-    color: #555;
-    line-height: 1.5;
+  .extra-illus { background: #fffde7; border-left: 3px solid #f9a825; color: #5d4037; }
+  .extra-opinion { background: #f9fbe7; border-left: 3px solid #7cb342; color: #33691e; }
+  .extra-impact { background: #f3e5f5; border-left: 3px solid #8e24aa; color: #4a148c; }
+  .section-divider {
+    border: none;
+    border-top: 2px dashed #d0d4e8;
+    margin: 28px 0 4px;
   }
-  .impact-box {
-    margin-top: 8px;
-    padding: 8px 10px;
-    background: #e8eaf6;
-    border-left: 3px solid #5c6bc0;
-    border-radius: 6px;
-    font-size: 0.8em;
-    color: #333;
-    line-height: 1.5;
+  footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 11px;
+    padding: 10px 0 20px;
   }
-  .footer { text-align: center; color: #aaa; font-size: 0.75em; padding: 20px; }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <h1>📰 뉴스 브리핑</h1>
-  <div class="subtitle">2026년 5월 19일 화요일 | 박정원 목사님</div>
-</div>
+<header>
+  <div class="top-label">📰 Daily News Briefing</div>
+  <h1>뉴스 브리핑</h1>
+  <div class="sub">2026년 5월 20일 수요일 &nbsp;·&nbsp; 박정원 목사님을 위한 큐레이션</div>
+</header>
 
 <div class="container">
 
-  <!-- 1. 기독교 뉴스 -->
-  <div class="section section-christian">
-    <div class="section-header">
-      ✝️ 기독교 · 교회 뉴스
-    </div>
+  <!-- ===== 기독교 뉴스 ===== -->
+  <div class="section-label christian">
+    <div class="icon-badge">✝️</div>
+    <h2>기독교 뉴스</h2>
+  </div>
 
-    <div class="news-item">
-      <div class="tag tag-sermon">✏️ 설교 예화 활용 가능</div>
-      <div class="news-title">2026 한국교회 트렌드 — AI 목회 코파일럿 시대 도래</div>
+  <!-- 뉴스 1 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">크리스천투데이 · 2026.05.19</div>
+      <div class="news-title">
+        <a href="https://www.christiantoday.co.kr/news/375183" target="_blank">
+          이영훈 목사, 美 '2026 리더십 서밋' 기조 강연자로 초청 — 미 국회의사당 임원 라운드테이블 참여
+        </a>
+      </div>
       <div class="news-summary">
-        2026년 한국교회 10대 트렌드로 심플처치, AI 목회 코파일럿, 강소교회, 3040세대 성장이 핵심으로 제시되었습니다. 
-        코로나 이전 대비 회복된 교회는 39%에 불과하며, 아직 61%가 회복 중에 있습니다. 
-        반면 성도들의 성경 읽기 시간이 주간 76분으로 증가(2023년 64분 대비)하며 영적 갈망은 오히려 높아지고 있습니다.
+        여의도순복음교회 이영훈 목사가 5월 19~20일 미국 워싱턴 D.C.에서 열리는 '2026 리더십 서밋'에 대한민국 대표 기독교 지도자로 초청받아 기조 강연을 맡았습니다. 20일에는 미 국회의사당에서 진행되는 임원 라운드테이블에도 참석합니다. 한국 교회의 국제적 영향력을 재확인하는 자리로 평가됩니다.
       </div>
-      <div class="sermon-box">
-        💡 <b>설교 예화:</b> "침체 속 영적 목마름" — 제도적 교회가 흔들려도 성도 개인의 말씀 사모함은 오히려 깊어지고 있다는 역설. 
-        위기 속에서도 하나님을 향한 갈망은 꺼지지 않는다는 메시지로 활용 가능합니다.
+      <div class="extra-box extra-illus">
+        📖 <strong>설교 예화:</strong> 한 나라의 영적 지도자가 타국의 정치·지도자들 앞에서 복음의 가치를 증거하는 이 장면은, 요셉이 바로의 궁전에서 하나님의 뜻을 전했던 모습을 떠올리게 합니다. 하나님은 당신의 종을 세상의 중심에 세우십니다.
       </div>
-      <a class="news-source" href="https://v.daum.net/v/xNCCPK0HIW" target="_blank">📎 출처: 다음뉴스 — 2026 한국교회 10대 트렌드</a>
-    </div>
-
-    <div class="news-item">
-      <div class="news-title">교회력: 오늘은 부활절 제7주간 화요일</div>
-      <div class="news-summary">
-        2026년 5월 19일은 부활 제7주간 화요일입니다. 성서일과 본문은 요한복음 17장(예수님의 대제사장적 기도)입니다.
-        주님의 승천과 성령강림절(오순절)을 앞둔 기도와 준비의 기간입니다.
-      </div>
-      <a class="news-source" href="https://lectionary.kmc.or.kr/" target="_blank">📎 출처: 교회력에 따른 성서일과 (디자인아레테)</a>
-    </div>
-
-    <div class="news-item">
-      <div class="news-title">소그룹 활성화와 3040세대가 한국교회 성장의 핵심</div>
-      <div class="news-summary">
-        2026 목회계획세미나에서 "소그룹의 활성화와 3040세대 포용이 교회 성장의 핵심"이라는 결론이 제시되었습니다. 
-        수평적 네트워크 세대에게 공동체적 신앙 경험을 제공하는 목장·셀 사역의 중요성이 더욱 강조되고 있습니다.
-      </div>
-      <div class="sermon-box">
-        💡 <b>설교 예화:</b> 목장 사역의 성경적 근거 — 초대교회가 집집마다 모이며 성장한 것처럼(행 2:46), 
-        소그룹은 단순한 프로그램이 아니라 교회의 본질적 형태입니다.
-      </div>
-      <a class="news-source" href="https://www.kmcdaily.com/news/articleView.html?idxno=11902" target="_blank">📎 출처: 웨슬리안타임즈</a>
     </div>
   </div>
 
-  <!-- 2. 세계 국제 정세 뉴스 -->
-  <div class="section section-world">
-    <div class="section-header">
-      🌏 세계 · 국제 정세 뉴스
-    </div>
-
-    <div class="news-item">
-      <div class="news-title">한·일 정상회담 — 이재명 대통령, 다카이치 총리 안동에서 만남</div>
+  <!-- 뉴스 2 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">기독일보 · 2026.05</div>
+      <div class="news-title">
+        <a href="https://www.christiandaily.co.kr/news/152026" target="_blank">
+          2026 한국교회 10대 트렌드 — "양적 성장에서 정체성 중심으로" 구조적 전환
+        </a>
+      </div>
       <div class="news-summary">
-        이재명 대통령이 5월 19~20일 경북 안동을 방문한 다카이치 사나에 일본 총리와 정상회담을 갖습니다.
-        양국 정상은 소인수·확대 정상회담과 공동언론발표, 만찬, 친교 일정 등을 함께하며 한일 관계 개선의 전기를 마련할 전망입니다.
+        목회데이터연구소가 발표한 '한국교회 트렌드 2026'에 따르면, 올해 한국교회는 심플처치, AI 목회 코파일럿, 강소교회, 여성 교역자 문제, 이주민 선교 등이 핵심 키워드로 부상했습니다. 특히 헌금 패러다임 변화와 서로 돌봄 공동체로의 전환이 강조됩니다.
       </div>
-      <div class="opinion-box opinion-positive">
-        <span class="tag tag-positive">✅ 긍정 여론</span><br>
-        "한·일 역사 문제를 넘어 실질적 경제·안보 협력으로 나아가는 성숙한 외교의 진전" — 관계 개선을 통한 동아시아 안정에 기여한다는 평가.
+      <div class="extra-box extra-illus">
+        📖 <strong>설교 예화:</strong> 초대교회가 숫자의 성장보다 "날마다 마음을 같이하여 성전에 모이기를 힘쓰고"(행 2:46) 공동체의 본질을 붙들었듯, 오늘의 교회도 규모가 아닌 정체성으로 시대의 답이 되어야 합니다.
       </div>
-      <div class="opinion-box opinion-critical">
-        <span class="tag tag-critical">⚠️ 비판 여론</span><br>
-        "역사 문제(독도, 강제징용, 위안부)에 대한 명확한 사과와 배상 없이는 진정한 화해가 어렵다"는 시민단체 및 야권의 비판.
-      </div>
-      <a class="news-source" href="https://news.daum.net/global" target="_blank">📎 출처: 다음뉴스 국제정세</a>
-    </div>
-
-    <div class="news-item">
-      <div class="news-title">트럼프 2기 — 러·우 종전 협상, 대중국 견제 지속</div>
-      <div class="news-summary">
-        미국 트럼프 2기 행정부는 2026년 11월 중간선거를 앞두고 러·우크라이나 전쟁 종전, 대중국 관세 전쟁 조정, 
-        북미 정상회담 등 외교적 성과를 내기 위해 박차를 가하고 있습니다. 
-        동아시아 지역은 미중 경쟁이 격화되는 가운데도 전반적 안정을 유지할 것으로 전망됩니다.
-      </div>
-      <div class="opinion-box opinion-positive">
-        <span class="tag tag-positive">✅ 긍정 여론</span><br>
-        "러·우 전쟁 종전이 실현된다면 유럽과 세계 경제에 숨통이 트이는 계기가 될 수 있다"는 기대감.
-      </div>
-      <div class="opinion-box opinion-critical">
-        <span class="tag tag-critical">⚠️ 비판 여론</span><br>
-        "미국의 일방적 압박식 종전 중재가 우크라이나 주권을 희생시키는 굴욕적 평화로 이어질 수 있다"는 우려.
-      </div>
-      <a class="news-source" href="https://bonn.mofa.go.kr/www/brd/m_4080/view.do?seq=376782" target="_blank">📎 출처: 외교부 — 2026 국제정세전망</a>
     </div>
   </div>
 
-  <!-- 3. AI 뉴스 -->
-  <div class="section section-ai">
-    <div class="section-header">
-      🤖 인공지능 · AI 최신 뉴스
-    </div>
-
-    <div class="news-item">
-      <div class="news-title">Anthropic, '클로드 포 스몰 비즈니스' 출시 — 중소기업 AI 문턱 낮춰</div>
+  <!-- 뉴스 3 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">교갱뉴스 · 2026.05</div>
+      <div class="news-title">
+        <a href="http://www.churchr.or.kr/news/articleView.html?idxno=20263" target="_blank">
+          기독교선교횃불재단 '2026년 1학기 횃불회' 마무리 — 목회자·선교사 재충전
+        </a>
+      </div>
       <div class="news-summary">
-        앤트로픽(Anthropic)이 중소기업과 소상공인을 위한 AI 패키지 '클로드 포 스몰 비즈니스(Claude for Small Business)'를 공식 출시했습니다.
-        대기업 중심이었던 AI 도입이 소규모 조직으로 확산되는 본격적인 전환점이 될 것으로 분석됩니다.
+        기독교선교횃불재단이 3월 30일부터 5월 18일까지 진행한 목회자·선교사 재충전 프로그램 '1학기 횃불회'가 마무리됐습니다. 소진된 사역자들의 영적 회복과 공동체 연대를 목적으로 하는 이 프로그램은 매 학기 많은 참가자의 호응을 받고 있습니다.
       </div>
-      <div class="impact-box">
-        🏘️ <b>일반인 생활 영향:</b> 작은 가게나 소규모 단체도 AI 비서를 저렴하게 사용할 수 있게 됩니다. 
-        교회·선교단체 등 비영리 조직도 AI 행정 지원이 가능해질 전망입니다.
+      <div class="extra-box extra-illus">
+        📖 <strong>설교 예화:</strong> 엘리야가 광야에서 탈진했을 때 천사가 숯불에 구운 떡과 물을 가져왔습니다(왕상 19:6). 사역자의 회복은 더 큰 사역을 위한 하나님의 준비입니다.
       </div>
-      <a class="news-source" href="https://www.aitimes.kr/" target="_blank">📎 출처: 인공지능신문</a>
     </div>
+  </div>
 
-    <div class="news-item">
-      <div class="news-title">마키나락스 IPO — AI 스타트업 2,807대 1 경쟁률 기록</div>
+  <!-- 뉴스 4 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">크리스천헤럴드 · 2026.01</div>
+      <div class="news-title">
+        <a href="https://www.cheraldus.com/bbs/board.php?bo_table=korean_news&wr_id=226" target="_blank">
+          "더 선명한 교회" — 2026 한국교회, 무엇을 지향해야 하는가
+        </a>
+      </div>
       <div class="news-summary">
-        AI 제조업 솔루션 기업 마키나락스가 IPO 일반청약에서 2,807.8 대 1 경쟁률과 청약 증거금 13.9조 원을 기록하며 2026년 최고 기록을 경신했습니다.
-        AI 산업에 대한 투자자들의 폭발적인 관심을 보여줍니다.
+        신학자·목회자들이 2026년 한국교회의 방향으로 '더 선명한 교회(Clearer Church)'를 제시했습니다. 세상과 타협하지 않는 복음의 선명성, 말씀 중심의 예배 회복, 그리고 다음 세대에게 신앙을 전수하는 일이 올해 가장 시급한 과제로 꼽혔습니다.
       </div>
-      <div class="impact-box">
-        📈 <b>일반인 생활 영향:</b> AI 기업에 대한 투자 열기가 고조되며 관련 주식 시장 변동성이 커지고 있습니다. 
-        투자 시 리스크 관리에 주의가 필요합니다.
+      <div class="extra-box extra-illus">
+        📖 <strong>설교 예화:</strong> "너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요"(마 5:14). 빛은 가려질 수 없습니다. 선명한 교회가 세상의 등대가 됩니다.
       </div>
-      <a class="news-source" href="https://news.dlwlrmaon.com/articles/288" target="_blank">📎 출처: IT뉴스모아</a>
     </div>
+  </div>
 
-    <div class="news-item">
-      <div class="news-title">딥시크(DeepSeek), AI 모델 가격 대폭 인하 — 가격 경쟁 재점화</div>
+  <hr class="section-divider">
+
+  <!-- ===== 세계 정세 뉴스 ===== -->
+  <div class="section-label world">
+    <div class="icon-badge">🌍</div>
+    <h2>세계 정세 뉴스</h2>
+  </div>
+
+  <!-- 뉴스 1 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">연합뉴스 · 2026.05.19</div>
+      <div class="news-title">한·일 정상회담 — 이재명·다카이치, 안동서 '원유·LNG 스와프' 합의</div>
       <div class="news-summary">
-        중국 AI 스타트업 딥시크(DeepSeek)가 최신 AI 모델의 가격을 대폭 인하하며 글로벌 AI 서비스 시장의 가격 경쟁이 다시 뜨거워지고 있습니다.
-        오픈AI, 구글, 앤트로픽 등 주요 AI 기업들도 경쟁력 유지를 위한 대응을 검토 중입니다.
+        이재명 대통령이 다카이치 사나에 일본 총리와 경북 안동에서 1박 2일 정상회담을 가졌습니다. 양국은 중동발 에너지 위기에 공동 대응하기 위한 '원유·LNG 스와프' 추진에 합의하며 에너지 안보 협력 기반을 마련했습니다.
       </div>
-      <div class="impact-box">
-        💡 <b>일반인 생활 영향:</b> AI 서비스 가격 경쟁으로 일반 사용자들이 더 저렴하게 AI를 활용할 수 있는 환경이 조성되고 있습니다. 
-        다양한 AI 도구를 비교해 보기 좋은 시점입니다.
+      <div class="tag-row">
+        <span class="tag tag-pos">👍 긍정 여론</span>
+        <span class="tag tag-neg">👎 비판 여론</span>
       </div>
-      <a class="news-source" href="https://kr.investing.com/news/stock-market-news/article-1913474" target="_blank">📎 출처: Investing.com Korea</a>
+      <div class="extra-box extra-opinion" style="margin-top:8px;">
+        <strong>긍정:</strong> 에너지 안보 공동 대응으로 경제적 실익 확보. 한일 협력 복원의 신호탄.<br><br>
+        <strong>비판:</strong> 역사 문제 해결 없는 경제 협력에 대한 우려. 과거 진전 없이 실무 외교만 진전된다는 지적.
+      </div>
     </div>
+  </div>
 
-    <div class="news-item">
-      <div class="news-title">MIT, '유니버설 AI' 글로벌 무료 교육 프로그램 공개</div>
+  <!-- 뉴스 2 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">Reuters / 연합뉴스 · 2026.05.19-20</div>
+      <div class="news-title">푸틴 중국 국빈 방문 — 시진핑·푸틴 정상회담 오늘 개최</div>
       <div class="news-summary">
-        MIT 오픈러닝이 전 세계 누구나 쉽게 인공지능을 학습할 수 있는 '유니버설 AI(Universal AI)' 글로벌 교육 프로그램을 공식 공개했습니다.
-        무료로 제공되는 이 프로그램은 AI 리터러시 확산을 목표로 합니다.
+        블라디미르 푸틴 러시아 대통령이 19~20일 중국을 국빈 방문 중이며, 시진핑 국가주석과의 정상회담이 오늘(20일) 열립니다. 우크라이나 전쟁 지속 속에 러·중 밀착이 심화되는 신호로, 서방 국가들은 이 회담을 예의주시하고 있습니다.
       </div>
-      <div class="impact-box">
-        🎓 <b>일반인 생활 영향:</b> 전문 지식 없이도 AI 기초를 배울 수 있는 공식 교육 기회가 생겼습니다. 
-        교회 성도들에게 AI 교육을 소개하는 자료로 활용할 수 있습니다.
+      <div class="tag-row">
+        <span class="tag tag-pos">👍 긍정 여론</span>
+        <span class="tag tag-neg">👎 비판 여론</span>
       </div>
-      <a class="news-source" href="https://www.etnews.com/20251231000243?m=1" target="_blank">📎 출처: 전자신문</a>
+      <div class="extra-box extra-opinion" style="margin-top:8px;">
+        <strong>긍정(러·중 측):</strong> 다극 세계 질서 구축 노력의 일환. 서방 일변도 국제 질서에 대한 균형 추구.<br><br>
+        <strong>비판(서방 측):</strong> 전쟁 장기화를 조장하는 러·중 군사·경제 공조 강화. 국제 제재 체제 무력화 우려.
+      </div>
     </div>
+  </div>
 
+  <!-- 뉴스 3 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">KIEP · 2026.05</div>
+      <div class="news-title">트럼프 2기, 중간선거 앞두고 대외정책 성과 드라이브 — 러·우 종전·북미 정상회담 추진</div>
+      <div class="news-summary">
+        대외경제정책연구원(KIEP)은 트럼프 2기 행정부가 2026년 11월 중간선거를 앞두고 러·우 전쟁 종전, 대중국 견제 조절, 북미 정상회담 개최 등 외교 성과를 서두르고 있다고 분석했습니다. 한반도 정세에도 직접적인 영향을 미칠 것으로 전망됩니다.
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-pos">👍 긍정</span>
+        <span class="tag tag-neg">👎 비판</span>
+      </div>
+      <div class="extra-box extra-opinion" style="margin-top:8px;">
+        <strong>긍정:</strong> 북미 대화 재개 가능성으로 한반도 긴장 완화 기대. 러·우 종전 시 글로벌 에너지·곡물 가격 안정 효과.<br><br>
+        <strong>비판:</strong> 선거용 외교의 지속 가능성 의문. 동맹 불안정 심화 우려.
+      </div>
+    </div>
+  </div>
+
+  <!-- 뉴스 4 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">국립외교원 · 2026</div>
+      <div class="news-title">「2026 국제정세전망」 발간 — 다극화·기술패권·기후변화 3대 변수</div>
+      <div class="news-summary">
+        국립외교원이 발간한 '2026 국제정세전망'은 올해 세계 질서를 좌우할 핵심 변수로 미·중 기술패권 경쟁 심화, 다극 체제 가속화, 기후변화 대응의 국제 협력 균열을 꼽았습니다. 한국 외교는 이 사이에서 전략적 자율성을 높여야 한다는 결론입니다.
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-pos">👍 긍정</span>
+        <span class="tag tag-neg">👎 비판</span>
+      </div>
+      <div class="extra-box extra-opinion" style="margin-top:8px;">
+        <strong>긍정:</strong> 한국의 외교적 역할 확장 기회. 중견국 외교 모범 사례 제시 가능.<br><br>
+        <strong>비판:</strong> 강대국 사이에서 전략적 자율성 유지가 현실적으로 어렵다는 회의론 존재.
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ===== AI 뉴스 ===== -->
+  <div class="section-label ai">
+    <div class="icon-badge">🤖</div>
+    <h2>AI 업계 뉴스</h2>
+  </div>
+
+  <!-- 뉴스 1 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">전국인력신문 · 2026.05</div>
+      <div class="news-title">
+        <a href="https://www.kjob.news/news/489757" target="_blank">
+          EU AI법 개정 — 고위험 AI 시스템 의무 준수 기한 연장 합의
+        </a>
+      </div>
+      <div class="news-summary">
+        2026년 5월 7일 EU 입법기관들은 세계 최초 포괄적 AI 규제인 'EU AI법' 개정에 정치적 합의를 이뤘습니다. 당초 2026년 8월 의무화 예정이었던 고위험 AI 시스템의 준수 기한을 상당 부분 연장하기로 했습니다. 한국 기업에도 직접적 영향이 예상됩니다.
+      </div>
+      <div class="extra-box extra-impact">
+        👥 <strong>일반인 영향:</strong> 의료 진단 AI, 채용 심사 AI 등 고위험 AI 서비스의 출시 및 사용 기준이 더 엄격해집니다. 소비자는 더 안전하고 투명한 AI 서비스를 이용하게 될 전망입니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 뉴스 2 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">방송통신위원회 · 2026.05.19</div>
+      <div class="news-title">방통위, AI 이용자 보호 제도 정비 착수 — "AI 서비스 피해 예방 체계 구축"</div>
+      <div class="news-summary">
+        방송통신위원회가 AI 기술의 급속한 발전에 따른 이용자 피해를 예방하고 안전한 서비스 환경을 조성하기 위해 관련 제도 정비에 착수했습니다. AI 생성 콘텐츠 표시 의무화, 딥페이크 피해 구제 절차 마련 등이 핵심 과제입니다.
+      </div>
+      <div class="extra-box extra-impact">
+        👥 <strong>일반인 영향:</strong> AI가 만든 사진·동영상·음성에 의무적으로 표시가 붙게 됩니다. 딥페이크 피해를 입은 경우 정부 차원의 구제 신청이 가능해질 전망입니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 뉴스 3 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">SKT 뉴스룸 / AI매터스 · 2026</div>
+      <div class="news-title">
+        <a href="https://news.sktelecom.com/218116" target="_blank">
+          2026년 AI 최대 화두 — '에이전틱 AI(Agentic AI)', 스스로 판단하고 실행하는 AI 시대
+        </a>
+      </div>
+      <div class="news-summary">
+        2026년 AI 트렌드의 핵심은 '에이전틱 AI'입니다. 단순히 지시를 수행하는 도구를 넘어, 스스로 목표를 설정하고 계획하며 실행하는 자율적 AI 에이전트가 기업·개인 업무에 본격 도입되고 있습니다. 법무, 회계, 의료 등 전문직 분야까지 영향력이 확대됩니다.
+      </div>
+      <div class="extra-box extra-impact">
+        👥 <strong>일반인 영향:</strong> 여행 예약부터 문서 작성, 고객 응대까지 AI가 사람 대신 여러 단계 업무를 처리하는 서비스가 빠르게 일상에 들어옵니다. 새로운 일자리 변화에 대비가 필요합니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 뉴스 4 -->
+  <div class="news-card">
+    <div class="news-card-inner">
+      <div class="news-source">한국AI융합교육협회 / MIT · 2026.05.10</div>
+      <div class="news-title">
+        <a href="https://koreaai.or.kr/dailynews/20260510/" target="_blank">
+          MIT 오픈러닝, 비전공자 위한 'Universal AI' 글로벌 교육 프로그램 공식 공개
+        </a>
+      </div>
+      <div class="news-summary">
+        MIT 오픈러닝이 비전공자도 AI를 쉽게 학습할 수 있는 '유니버설 AI(Universal AI)' 글로벌 온라인 교육 과정을 공식 공개했습니다. 한국지능정보사회진흥원(NIA)과 한국수출입은행도 AI·디지털 분야 국제협력을 확대하기로 협약을 체결했습니다.
+      </div>
+      <div class="extra-box extra-impact">
+        👥 <strong>일반인 영향:</strong> 코딩을 몰라도 AI를 배울 수 있는 양질의 무료·저비용 교육 기회가 확대됩니다. 목회자와 교회 사역자도 AI 활용 역량을 키울 수 있는 좋은 기회입니다.
+      </div>
+    </div>
   </div>
 
 </div>
-
-<div class="footer">자동 생성 · 2026년 5월 19일 화요일 · 박정원 목사님을 위한 뉴스 브리핑</div>
+<footer>자동 생성 뉴스 브리핑 · 2026년 5월 20일 오전 8:27 (KST) · 박정원 목사님을 위한 큐레이션</footer>
 </body>
 </html>
