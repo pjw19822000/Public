@@ -3,554 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>뉴스 브리핑 — 2026년 5월 21일</title>
+<title>뉴스 브리핑 - 2026년 5월 22일</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', Arial, sans-serif;
-    background: #f5f7fa;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: #f0f2f5;
     color: #333;
     min-height: 100vh;
   }
-  header {
-    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #01579b 100%);
+  .header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
     color: white;
     padding: 28px 20px 24px;
     text-align: center;
   }
-  header .date-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 4px 16px;
-    font-size: 12px;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+  .header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
   }
-  header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+  .header h1 {
+    font-size: 24px;
+    font-weight: 800;
     margin-bottom: 6px;
   }
-  header .subtitle {
+  .header .date {
     font-size: 13px;
-    opacity: 0.75;
+    opacity: 0.8;
   }
-
-  /* Tab navigation */
+  /* 섹션 탭 네비 */
   .tab-nav {
     display: flex;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: #1a237e;
+    padding: 0 16px 16px;
+    gap: 8px;
+    overflow-x: auto;
   }
   .tab-btn {
-    flex: 1;
-    padding: 14px 6px;
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 20px;
     border: none;
-    background: white;
     font-size: 13px;
     font-weight: 600;
-    color: #999;
     cursor: pointer;
-    border-bottom: 3px solid transparent;
     transition: all 0.2s;
-    font-family: inherit;
   }
-  .tab-btn.active {
-    color: #1a237e;
-    border-bottom-color: #1a237e;
-  }
-
+  .tab-btn.christian { background: #4caf50; color: white; }
+  .tab-btn.world { background: rgba(255,255,255,0.15); color: white; }
+  .tab-btn.ai { background: rgba(255,255,255,0.15); color: white; }
   .container {
-    max-width: 640px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px 16px 60px;
+    padding: 16px;
   }
-
-  /* Section panels */
-  .panel { display: none; }
-  .panel.active { display: block; }
-
-  .section-label {
+  /* 섹션 헤더 */
+  .section-header {
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 24px 0 14px;
+    gap: 12px;
   }
-  .section-label-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-  }
-  .section-label-text {
-    font-size: 17px;
-    font-weight: 700;
-    color: #1a1a2e;
-  }
-  .section-label-count {
-    font-size: 12px;
-    color: #888;
-    font-weight: 400;
-  }
-
-  /* News card */
+  .section-header.christian { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+  .section-header.world { background: linear-gradient(135deg, #b71c1c, #c62828); }
+  .section-header.ai { background: linear-gradient(135deg, #0d47a1, #1565c0); }
+  .section-header .icon { font-size: 32px; }
+  .section-header h2 { color: white; font-size: 18px; font-weight: 800; }
+  .section-header p { color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 2px; }
+  /* 뉴스 카드 */
   .news-card {
     background: white;
     border-radius: 14px;
-    padding: 18px 20px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 12px;
     overflow: hidden;
   }
-  .news-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
+  .news-card .news-header {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid #f5f5f5;
   }
-  .news-num {
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
+  .news-card .news-number {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
     color: white;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 22px;
+    margin-right: 8px;
     flex-shrink: 0;
-    margin-right: 10px;
-    margin-top: 2px;
   }
-  .num-christian { background: #1a237e; }
-  .num-world     { background: #1b5e20; }
-  .num-ai        { background: #4a148c; }
-
-  .news-title {
+  .news-card .news-number.christian { background: #2e7d32; }
+  .news-card .news-number.world { background: #c62828; }
+  .news-card .news-number.ai { background: #1565c0; }
+  .news-card .news-title {
     font-size: 15px;
     font-weight: 700;
-    color: #1a1a2e;
-    line-height: 1.45;
-    flex: 1;
+    color: #111;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
   }
-  .news-summary {
-    font-size: 13.5px;
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 12px;
+  .news-card .news-source {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
-  .news-source {
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 8px;
-  }
-  .news-source a {
+  .news-card .news-source a {
     color: #1a237e;
     text-decoration: none;
     font-weight: 600;
   }
-  .news-source a:hover { text-decoration: underline; }
-
-  /* Special boxes */
-  .special-box {
+  .news-card .news-body {
+    padding: 12px 16px;
+  }
+  .summary-block {
+    background: #f8f9fa;
     border-radius: 10px;
-    padding: 12px 14px;
-    margin-top: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
     font-size: 13px;
-    line-height: 1.6;
+    color: #444;
+    line-height: 1.7;
   }
-  .illustration-box {
-    background: #e8eaf6;
-    border-left: 3px solid #1a237e;
+  /* 특별 블록 */
+  .special-block {
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.7;
   }
-  .illustration-box .box-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: #1a237e;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 4px;
-  }
-  .illustration-box .box-text {
-    color: #3c4284;
-  }
-
-  .opinion-box {
+  .special-block.sermon {
     background: #e8f5e9;
-    border-left: 3px solid #2e7d32;
+    border-left: 4px solid #4caf50;
   }
-  .opinion-box .box-label {
-    font-size: 11px;
+  .special-block.sermon .label {
     font-weight: 700;
     color: #2e7d32;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
     margin-bottom: 4px;
-  }
-  .opinion-row {
-    margin-bottom: 6px;
-  }
-  .opinion-badge {
-    display: inline-block;
-    border-radius: 4px;
-    padding: 1px 7px;
     font-size: 11px;
-    font-weight: 700;
-    margin-right: 6px;
-  }
-  .positive { background: #2e7d32; color: white; }
-  .critical { background: #c62828; color: white; }
-
-  .impact-box {
-    background: #f3e5f5;
-    border-left: 3px solid #6a1b9a;
-  }
-  .impact-box .box-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: #6a1b9a;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
+  }
+  .special-block.sermon p { color: #2e7d32; }
+  .special-block.opinion {
+    background: #fff8e1;
+    border-left: 4px solid #ffa000;
+  }
+  .special-block.opinion .label {
+    font-weight: 700;
+    color: #e65100;
     margin-bottom: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-  .impact-box .box-text {
-    color: #4a148c;
+  .special-block.opinion p { color: #5d4037; }
+  .special-block.impact {
+    background: #e3f2fd;
+    border-left: 4px solid #1976d2;
   }
-
-  .separator {
-    border: none;
-    border-top: 1px solid #f0f0f0;
-    margin: 10px 0;
+  .special-block.impact .label {
+    font-weight: 700;
+    color: #0d47a1;
+    margin-bottom: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-
-  footer {
+  .special-block.impact p { color: #1a237e; }
+  /* 섹션 구분 */
+  .section-divider {
+    height: 24px;
+  }
+  .footer {
     text-align: center;
+    padding: 24px 16px;
     color: #bbb;
+    font-size: 12px;
+  }
+  .source-tag {
+    display: inline-block;
+    background: #e8eaf6;
+    color: #3949ab;
+    border-radius: 6px;
+    padding: 2px 8px;
     font-size: 11px;
-    margin-top: 32px;
-    padding-bottom: 20px;
+    font-weight: 600;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="date-badge">📰 2026년 5월 21일 목요일</div>
-  <h1>📡 오늘의 뉴스 브리핑</h1>
-  <p class="subtitle">기독교 · 세계 정세 · AI 업계 — 박정원 목사 큐레이션</p>
-</header>
-
-<!-- Tab Navigation -->
-<div class="tab-nav">
-  <button class="tab-btn active" onclick="showPanel('christian', this)">✝️ 기독교</button>
-  <button class="tab-btn" onclick="showPanel('world', this)">🌏 세계 정세</button>
-  <button class="tab-btn" onclick="showPanel('ai', this)">🤖 AI 업계</button>
+<div class="header">
+  <div class="eyebrow">Pastor's Daily Intelligence</div>
+  <h1>📰 뉴스 브리핑</h1>
+  <div class="date">2026년 5월 22일 금요일 · 기독교 · 세계 · AI</div>
 </div>
 
 <div class="container">
 
-  <!-- ===== 기독교 뉴스 패널 ===== -->
-  <div id="panel-christian" class="panel active">
+  <!-- ═══════════════════════════════════ -->
+  <!--  섹션 1: 기독교 뉴스                -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-divider"></div>
+  <div class="section-header christian">
+    <div class="icon">✝️</div>
+    <div>
+      <h2>기독교 · 교회 뉴스</h2>
+      <p>한국교회 및 세계 기독교 주요 소식</p>
+    </div>
+  </div>
 
-    <div class="section-label">
-      <div class="section-label-icon" style="background:#e8eaf6;">✝️</div>
-      <div>
-        <div class="section-label-text">기독교 뉴스</div>
-        <div class="section-label-count">4건 · 2026년 5월 21일</div>
+  <!-- 기독교 뉴스 1 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number christian">1</span>
+        한국교회 트렌드 2026 세미나 개최 — "더 선명한 교회"를 향해
+      </div>
+      <div class="news-source">
+        📌 <span class="source-tag">크리스천투데이</span>
+        &nbsp;<a href="https://www.christiantoday.co.kr/" target="_blank">원문 보기 →</a>
       </div>
     </div>
-
-    <!-- 기독교 1 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-christian">1</div>
-        <div class="news-title">수십 년 만에 처음으로 미국 교회 출석률 증가세 전환</div>
+    <div class="news-body">
+      <div class="summary-block">
+        서울 신성교회에서 열린 '한국교회 트렌드 2026' 세미나에서 10대 트렌드가 공개되었습니다. 핵심 키워드는 <strong>선명화·노령화·공공성</strong>으로, 확장 중심의 목회는 한계에 달했고 선택과 집중을 통한 목회 재구성이 불가피하다는 진단이 나왔습니다. AI 미디어 환경의 급변과 청년 문화 재편이 한국 교회 전반에 복합적 변화를 일으키고 있습니다.
       </div>
-      <div class="news-summary">
-        팬데믹 이후 처음으로 미국 교회 출석률이 의미 있는 상승세를 보이고 있습니다. 독립 기독교회 및 그리스도의 교회 수백 곳의 데이터를 분석한 결과, 세례 건수 증가와 젊은 세대의 참여 확대가 두드러지게 나타났습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://christianstandard.com/print-magazines/the-church-report-christian-standard-may-june-2026/" target="_blank">Christian Standard — May/June 2026</a></div>
-      <div class="special-box illustration-box">
-        <div class="box-label">✍️ 설교 예화</div>
-        <div class="box-text">
-          "부활은 한 사건이 아니라 운동입니다." 팬데믹으로 교회가 닫혔을 때 사람들은 신앙의 갈증을 더 깊이 느꼈고, 이제 다시 문이 열리자 더 강하게 돌아왔습니다. 잃어버린 아들의 귀환처럼(눅 15:20), 빈 시간이 오히려 하나님을 향한 갈망을 키웠습니다. 우리 교회도 열린 문을 통해 돌아오는 영혼들을 맞이할 준비를 해야 합니다.
-        </div>
+      <div class="special-block sermon">
+        <div class="label">✍️ 설교 예화</div>
+        <p>마치 항해 중인 배가 방향을 잃었을 때 먼저 자신의 위치를 확인하듯, 한국교회는 지금 '우리는 어디에 있는가'를 물어야 할 때입니다. 선명한 정체성이 없는 교회는 세상의 조류에 휩쓸릴 수밖에 없습니다. 복음의 본질로 돌아갈 때 교회는 다시 빛이 됩니다.</p>
       </div>
     </div>
+  </div>
 
-    <!-- 기독교 2 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-christian">2</div>
-        <div class="news-title">팔레스타인 기독교 유학생 8개월 수감 끝에 석방</div>
+  <!-- 기독교 뉴스 2 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number christian">2</span>
+        제9차 치과의료선교대회 5월 23~25일 서울 개최
       </div>
-      <div class="news-summary">
-        팔레스타인 기독교인 학생 라얀 나시르(25세)가 이스라엘 다몬 교도소에서 8개월간 억류된 끝에 석방되었습니다. 영국과 미국 성공회 주교들이 적극적으로 그녀의 사건을 공론화하며 석방을 이끌어냈습니다. 중동 기독교인 인권 문제가 다시 국제 사회의 주목을 받고 있습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://premierchristian.news/" target="_blank">Premier Christian News — 2026년 5월</a></div>
-      <div class="special-box illustration-box">
-        <div class="box-label">✍️ 설교 예화</div>
-        <div class="box-text">
-          "그리스도의 몸 된 교회가 서로를 위해 기도할 때 기적이 일어납니다." 국경을 초월한 성도들의 연대 기도가 한 젊은 여성을 자유케 했습니다. 빌레몬서의 오네시모처럼, 갇힌 자를 위한 중보가 역사를 바꿀 수 있습니다(빌 1:16). 우리가 잊지 말아야 할 핍박받는 형제자매들이 있습니다.
-        </div>
+      <div class="news-source">
+        📌 <span class="source-tag">기독일보</span>
+        &nbsp;<a href="https://www.christiandaily.co.kr/" target="_blank">원문 보기 →</a>
       </div>
     </div>
-
-    <!-- 기독교 3 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-christian">3</div>
-        <div class="news-title">중국의 전 세계 기독교인 탄압 — 신앙에 대한 전쟁</div>
+    <div class="news-body">
+      <div class="summary-block">
+        치과의료선교회 주관 '제9차 치과의료선교대회'가 5월 23일(토)부터 25일(월)까지 서울 강서구 국제청소년센터에서 개최됩니다. 의료 자원을 통한 선교가 교회 사역의 새 지평을 열고 있으며, 국내외 의료선교 전문가들이 함께 모입니다.
       </div>
-      <div class="news-summary">
-        CBN 크리스천 월드 뉴스는 중국이 자국 내를 넘어 해외 기독교인과 신앙 공동체를 겨냥하고 있다고 보도했습니다. 2026년 5월 기준, 중국의 종교 통제 정책이 해외 화교 기독교 커뮤니티와 선교사 활동에까지 영향을 미치고 있는 실태가 드러났습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://cbn.com/video/shows/christian-world-news-war-faith-may-15-2026" target="_blank">CBN Christian World News — 2026년 5월 15일</a></div>
-      <div class="special-box illustration-box">
-        <div class="box-label">✍️ 설교 예화</div>
-        <div class="box-text">
-          "복음은 막을 수 없습니다." 사도행전 4장에서 베드로와 요한이 복음 전파를 금지당했을 때 그들은 "하나님 앞에서 너희의 말을 듣는 것이 하나님의 말씀을 듣는 것보다 옳은가"(행 4:19)라고 선언했습니다. 오늘 중국에서도 같은 일이 일어나고 있습니다. 핍박이 복음을 막지 못하고 오히려 퍼뜨립니다.
-        </div>
+      <div class="special-block sermon">
+        <div class="label">✍️ 설교 예화</div>
+        <p>예수님께서 치유하셨던 것처럼, 의료 선교는 복음의 실천적 표현입니다. 손을 내밀어 병자를 고치는 것은 하나님 나라의 도래를 몸으로 보여주는 가장 강력한 증거입니다. "내가 곧 길이요 진리요 생명"이신 주님은 오늘도 당신의 손과 발을 통해 세상을 치유하십니다.</p>
       </div>
     </div>
+  </div>
 
-    <!-- 기독교 4 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-christian">4</div>
-        <div class="news-title">동아프리카 여성 절반, 가정폭력 경험 — 교회가 나선다</div>
+  <!-- 기독교 뉴스 3 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number christian">3</span>
+        한국기독교장로회, 동성혼 반대대책위 전주 회의 개최
       </div>
-      <div class="news-summary">
-        동아프리카 여성의 약 절반이 가정 내 폭력을 경험하고 있다는 조사 결과가 발표됐습니다. 이에 교회 지도자들이 공동체 차원의 대응에 나서고 있으며, 지역 교회가 피해 여성을 위한 안전망 역할을 하도록 교육과 자원을 지원하는 프로그램들이 시작됐습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://www.christianitytoday.com/news/" target="_blank">Christianity Today — 2026년 5월</a></div>
-      <div class="special-box illustration-box">
-        <div class="box-label">✍️ 설교 예화</div>
-        <div class="box-text">
-          "하나님은 약한 자의 편에 서십니다." 야고보서 1:27은 "고아와 과부를 그 환난 중에 돌아보고"를 순전한 경건으로 정의합니다. 교회가 예배당 안에만 머무를 때 복음은 힘을 잃습니다. 오늘 아프리카 교회가 보여주는 것처럼, 상처받은 자들의 곁에 선다는 것이 예수님의 방식입니다.
-        </div>
+      <div class="news-source">
+        📌 <span class="source-tag">크리스천투데이</span>
+        &nbsp;<a href="https://www.christiantoday.co.kr/" target="_blank">원문 보기 →</a>
       </div>
     </div>
-
-  </div><!-- end christian panel -->
-
-
-  <!-- ===== 세계 정세 패널 ===== -->
-  <div id="panel-world" class="panel">
-
-    <div class="section-label">
-      <div class="section-label-icon" style="background:#e8f5e9;">🌏</div>
-      <div>
-        <div class="section-label-text">세계 정세</div>
-        <div class="section-label-count">4건 · 2026년 5월 21일</div>
+    <div class="news-body">
+      <div class="summary-block">
+        한국기독교장로회 동성애·동성혼 반대대책위원회가 22일 전주 중산교회에서 회의를 열었습니다. 최근 국내 성소수자 관련 법안 논의와 맞물려 한국 교계의 대응 방향이 주목받고 있습니다. 한국교회는 성경적 결혼 정의를 수호하면서도 사회적 소통을 강화하는 균형을 모색하고 있습니다.
+      </div>
+      <div class="special-block sermon">
+        <div class="label">✍️ 설교 예화</div>
+        <p>진리를 말할 때 우리는 사랑으로 말해야 합니다(엡 4:15). 교회가 세상과 다른 가치를 선포하는 것은 정죄가 아닌 생명을 향한 초대입니다. 빛은 어둠을 공격하지 않아도 어둠이 자연히 물러납니다. 우리가 복음의 빛을 밝히면 됩니다.</p>
       </div>
     </div>
+  </div>
 
-    <!-- 세계 1 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-world">1</div>
-        <div class="news-title">NATO 외무장관 회의 오늘 스웨덴에서 개최</div>
+  <!-- 기독교 뉴스 4 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number christian">4</span>
+        2026년 한국교회 통계 — 성도 수 감소, 노령화 가속화
       </div>
-      <div class="news-summary">
-        NATO 회원국 외무장관들이 5월 21일 스웨덴에서 북대서양 이사회 외무장관 회의를 개최합니다. 러시아-우크라이나 전쟁 대응, 회원국 방위비 분담, 그리고 동유럽 안보 강화 방안이 주요 의제로 다뤄질 전망입니다.
-      </div>
-      <div class="news-source">출처: <a href="https://www.nato.int/en/news-and-events/events/event-programmes/2026/05/meeting-of-nato-ministers-of-foreign-affairs" target="_blank">NATO 공식 사이트 — 2026년 5월 21일</a></div>
-      <div class="special-box opinion-box">
-        <div class="box-label">🗣️ 주요 여론</div>
-        <div class="opinion-row">
-          <span class="opinion-badge positive">긍정</span>
-          <span>러시아 위협 억제를 위한 동맹 결속이 필요하며, 스웨덴 합류 이후 첫 주요 회의로 의미 있다는 평가.</span>
-        </div>
-        <div class="opinion-row">
-          <span class="opinion-badge critical">비판</span>
-          <span>방위비 분담 갈등이 여전히 해소되지 않았고, 미국의 일방적 정책 변화로 동맹 신뢰가 흔들리고 있다는 우려.</span>
-        </div>
+      <div class="news-source">
+        📌 <span class="source-tag">기독일보</span>
+        &nbsp;<a href="https://www.christiandaily.co.kr/news/152026" target="_blank">원문 보기 →</a>
       </div>
     </div>
-
-    <!-- 세계 2 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-world">2</div>
-        <div class="news-title">콩고 에볼라 변종 확산 — WHO "134명 사망, 500명 이상 감염"</div>
+    <div class="news-body">
+      <div class="summary-block">
+        2026년 한국교회 통계에 따르면 전체 성도 수는 계속 감소하는 반면 고령 성도 비율은 높아지고 청년층 이탈이 지속되고 있습니다. 전문가들은 교회가 지역사회와의 연결, 예배 혁신, 청년 문화 이해를 통해 돌파구를 마련해야 한다고 강조합니다.
       </div>
-      <div class="news-summary">
-        세계보건기구(WHO)가 콩고민주공화국에서 에볼라 변종 바이러스가 빠르게 확산되고 있다고 경고했습니다. 현재까지 134명 이상의 사망자와 500여 명의 의심 감염자가 보고됐으며, 확산세 통제를 위한 국제적 지원이 요청되고 있습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://www.aljazeera.com/news/" target="_blank">Al Jazeera — 2026년 5월 20일</a></div>
-      <div class="special-box opinion-box">
-        <div class="box-label">🗣️ 주요 여론</div>
-        <div class="opinion-row">
-          <span class="opinion-badge positive">긍정</span>
-          <span>국제 의료 지원 체계가 즉각 가동되고 있으며, 기존 에볼라 백신 재고가 있어 조기 통제가 가능하다는 분석.</span>
-        </div>
-        <div class="opinion-row">
-          <span class="opinion-badge critical">비판</span>
-          <span>콩고 내전 상황으로 의료진 접근이 제한되고, 지역 의료 인프라 부족으로 대응이 늦어질 것이라는 우려.</span>
-        </div>
+      <div class="special-block sermon">
+        <div class="label">✍️ 설교 예화</div>
+        <p>씨앗은 땅에 묻혀야 열매를 맺습니다. 교회의 외적 성장이 멈춘 시간은 뿌리를 더 깊이 내리는 시간일 수 있습니다. 수적 성장보다 영적 깊이, 건물보다 공동체, 프로그램보다 관계가 진정한 부흥의 씨앗입니다.</p>
       </div>
     </div>
+  </div>
 
-    <!-- 세계 3 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-world">3</div>
-        <div class="news-title">푸틴-시진핑 베이징 회담 — 양국 밀착 관계 과시</div>
+  <!-- ═══════════════════════════════════ -->
+  <!--  섹션 2: 세계 정세                  -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-divider"></div>
+  <div class="section-header world">
+    <div class="icon">🌍</div>
+    <div>
+      <h2>세계 정세</h2>
+      <p>국제 뉴스 · 긍정 / 비판 여론 분석</p>
+    </div>
+  </div>
+
+  <!-- 세계 뉴스 1 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number world">1</span>
+        중동 위기 — 호르무즈 해협 긴장 고조, 유가 급등
       </div>
-      <div class="news-summary">
-        블라디미르 푸틴 러시아 대통령이 5월 20일 베이징을 방문해 시진핑 중국 국가주석과 양자 회담을 가졌습니다. 푸틴은 양국의 긴밀한 유대 관계를 강조했으며, 경제·군사·에너지 협력 강화 방안을 논의한 것으로 알려졌습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://www.justsecurity.org/139417/early-edition-may-20-2026/" target="_blank">Just Security — 2026년 5월 20일</a></div>
-      <div class="special-box opinion-box">
-        <div class="box-label">🗣️ 주요 여론</div>
-        <div class="opinion-row">
-          <span class="opinion-badge positive">긍정</span>
-          <span>미국 주도 서방 압박에 맞서 다극 세계를 구성하는 균형추 역할로 보는 시각 (러시아·중국 국내 여론).</span>
-        </div>
-        <div class="opinion-row">
-          <span class="opinion-badge critical">비판</span>
-          <span>중러 동맹 심화는 글로벌 안보 불안정을 가중시키며, 우크라이나 전쟁 지속에 중국이 책임을 져야 한다는 서방 비판.</span>
-        </div>
+      <div class="news-source">
+        📌 <span class="source-tag">나무위키 / 오늘의클릭</span>
+        &nbsp;<a href="https://namu.wiki/w/2026%EB%85%84%20%EC%A4%91%EB%8F%99%20%EC%9C%84%EA%B8%B0" target="_blank">원문 보기 →</a>
       </div>
     </div>
-
-    <!-- 세계 4 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-world">4</div>
-        <div class="news-title">이스라엘, 레바논 남부 공습 — 민간인 19명 사망</div>
+    <div class="news-body">
+      <div class="summary-block">
+        호르무즈 해협에서 한국 선박 폭발 사고가 발생했으며, 트럼프 대통령이 이란의 공격으로 규정하고 동맹국에 파병을 요청했습니다. 이로 인해 국제 유가가 급등하며 에너지 공급망 불안과 인플레이션 우려가 커지고 있습니다.
       </div>
-      <div class="news-summary">
-        이스라엘 공군이 레바논 남부에 대한 공습을 실시해 여성 4명과 어린이 3명을 포함한 최소 19명이 사망했습니다. 이스라엘 측은 헤즈볼라 목표물을 겨냥했다고 밝혔으나, 민간인 피해에 대한 국제 사회의 비난 여론이 높아지고 있습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://www.aljazeera.com/news/" target="_blank">Al Jazeera — 2026년 5월</a></div>
-      <div class="special-box opinion-box">
-        <div class="box-label">🗣️ 주요 여론</div>
-        <div class="opinion-row">
-          <span class="opinion-badge positive">긍정</span>
-          <span>이스라엘은 헤즈볼라 위협에 대한 자위권 행사라고 주장. 친이스라엘 진영은 민간인 방패 이용 책임이 헤즈볼라에 있다고 강조.</span>
-        </div>
-        <div class="opinion-row">
-          <span class="opinion-badge critical">비판</span>
-          <span>UN과 국제 인권 단체들은 민간인 비례 피해를 강하게 규탄. 중동 긴장 고조와 인도주의적 위기에 대한 우려 확산.</span>
-        </div>
+      <div class="special-block opinion">
+        <div class="label">⚖️ 긍정 vs 비판 여론</div>
+        <p><strong>긍정:</strong> 항행 자유 보장과 동맹 결속 강화 측면에서 미국의 강경 대응을 지지하는 목소리가 있습니다.<br>
+        <strong>비판:</strong> 군사적 긴장 고조가 전쟁으로 이어질 수 있다는 우려와 함께, 한국이 분쟁에 연루될 가능성에 대한 비판 여론도 강합니다. 특히 에너지 의존도가 높은 한국 경제에 치명적 영향을 줄 수 있다는 지적이 나옵니다.</p>
       </div>
     </div>
+  </div>
 
-  </div><!-- end world panel -->
-
-
-  <!-- ===== AI 뉴스 패널 ===== -->
-  <div id="panel-ai" class="panel">
-
-    <div class="section-label">
-      <div class="section-label-icon" style="background:#f3e5f5;">🤖</div>
-      <div>
-        <div class="section-label-text">AI 업계 뉴스</div>
-        <div class="section-label-count">4건 · 2026년 5월 21일</div>
+  <!-- 세계 뉴스 2 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number world">2</span>
+        우크라이나 전쟁 장기화 — 젤렌스키 인도적 휴전 선언
+      </div>
+      <div class="news-source">
+        📌 <span class="source-tag">오늘의클릭</span>
+        &nbsp;<a href="https://www.cliktoday.com/2026/05/20260505-today-news.html" target="_blank">원문 보기 →</a>
       </div>
     </div>
-
-    <!-- AI 1 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-ai">1</div>
-        <div class="news-title">구글 I/O 2026 — 제미나이 3.5 Flash 출시·AI Ultra 구독 공개</div>
+    <div class="news-body">
+      <div class="summary-block">
+        젤렌스키 대통령이 러시아 승전기념일(5월 9일)을 앞두고 인도적 차원에서 단기 휴전을 선언했으나 러시아의 공식 반응은 없었습니다. 전쟁 3년 이상 지속으로 국제 경제 질서가 흔들리고 있으며 재건 비용이 수천억 달러에 달할 것으로 추산됩니다.
       </div>
-      <div class="news-summary">
-        구글이 I/O 2026 개발자 컨퍼런스에서 제미나이 3.5 Flash를 정식 출시했습니다. 이 모델은 기존 대비 4배 빠른 속도를 자랑하며 최전선 수준의 성능을 제공합니다. 또한 월 100달러의 AI Ultra 구독 플랜과 동영상·이미지·텍스트 등 모든 형태의 입력을 처리하는 제미나이 Omni 모델도 발표됐습니다.
-      </div>
-      <div class="news-source">출처: <a href="https://blog.google/intl/ko-kr/company-news/technology/google-ai-subscriptions-kr/" target="_blank">Google 공식 블로그 (한국어) — 2026년 5월</a></div>
-      <div class="special-box impact-box">
-        <div class="box-label">💡 일반인 영향</div>
-        <div class="box-text">
-          스마트폰 사용자들은 구글 앱에서 더 빠르고 정확한 AI 도움을 받을 수 있게 됩니다. 유튜브 요약, 구글 문서 작성 지원, 구글 포토 편집 등이 대폭 향상될 전망입니다. 월 100달러 구독은 업무용·전문가용이며, 일반 무료 서비스도 개선됩니다.
-        </div>
+      <div class="special-block opinion">
+        <div class="label">⚖️ 긍정 vs 비판 여론</div>
+        <p><strong>긍정:</strong> 인도적 휴전 시도는 평화 의지를 국제 사회에 보여주는 상징적 행보로 평가됩니다.<br>
+        <strong>비판:</strong> 러시아가 호응하지 않는 한 실효성이 없다는 비판과 함께, 서방의 군사 지원이 오히려 전쟁을 장기화한다는 시각도 존재합니다.</p>
       </div>
     </div>
+  </div>
 
-    <!-- AI 2 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-ai">2</div>
-        <div class="news-title">OpenAI GPT-5.4 "Thinking" — 인간 전문가 수준 83% 달성</div>
+  <!-- 세계 뉴스 3 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number world">3</span>
+        한강 소설 '작별하지 않는다' 아비뇽 페스티벌 공식 초청
       </div>
-      <div class="news-summary">
-        OpenAI의 최신 모델 GPT-5.4 "Thinking"이 경제적으로 가치 있는 작업을 평가하는 GDPVal 벤치마크에서 83.0%를 기록, 인간 전문가 수준에 도달하거나 초과했습니다. AI가 의사, 변호사, 엔지니어 등 전문직 수준의 업무를 처리할 수 있는 새로운 단계에 진입했다는 평가가 나옵니다.
-      </div>
-      <div class="news-source">출처: <a href="https://llm-stats.com/ai-news" target="_blank">LLM Stats — AI Model Releases, May 2026</a></div>
-      <div class="special-box impact-box">
-        <div class="box-label">💡 일반인 영향</div>
-        <div class="box-text">
-          법률 서류 검토, 의학적 조언, 세금 신고 등 전문가의 도움이 필요했던 일들을 AI로 해결하는 시대가 가까워졌습니다. 특히 전문가를 만나기 어려운 저소득층이나 농어촌 지역 주민들에게 큰 혜택이 될 수 있습니다. 반면, 관련 직종 종사자들의 역할 변화에 대한 준비도 필요합니다.
-        </div>
+      <div class="news-source">
+        📌 <span class="source-tag">국내 언론</span>
       </div>
     </div>
-
-    <!-- AI 3 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-ai">3</div>
-        <div class="news-title">EU AI법 개정안 합의 — 고위험 AI 기한 연장 및 규제 완화</div>
+    <div class="news-body">
+      <div class="summary-block">
+        노벨문학상 수상자 한강의 소설 『작별하지 않는다』가 세계 최대 공연예술축제인 프랑스 아비뇽 페스티벌에 공식 초청되었습니다. 한국 작품이 아비뇽 페스티벌에 공식 초청된 것은 28년 만으로, 한국 문화의 세계적 위상이 더욱 높아졌습니다.
       </div>
-      <div class="news-summary">
-        2026년 5월 7일, EU 의회와 집행위원회가 세계 최초 포괄적 AI 규제법인 'EU AI법'의 중요 개정안에 정치적 합의를 이뤘습니다. 고위험 AI 시스템에 대한 의무 준수 기한이 연장되고, 일부 기업에 대한 부담을 줄이는 방향으로 조정됐습니다. 한국 기업들의 EU 시장 전략에도 영향을 줄 전망입니다.
-      </div>
-      <div class="news-source">출처: <a href="https://www.kjob.news/news/489757" target="_blank">전국인력신문 — EU AI법 개정 분석, 2026년 5월</a></div>
-      <div class="special-box impact-box">
-        <div class="box-label">💡 일반인 영향</div>
-        <div class="box-text">
-          EU에서 사용되는 AI 서비스(취업 심사, 의료 진단, 신용 평가 등)가 법적 기준을 충족해야 하므로, 소비자 입장에서는 더 투명하고 안전한 AI 서비스를 기대할 수 있습니다. 한국 기업들도 EU 수출 시 이 규정을 준수해야 합니다.
-        </div>
+      <div class="special-block opinion">
+        <div class="label">⚖️ 긍정 vs 비판 여론</div>
+        <p><strong>긍정:</strong> 한국 문학과 문화의 세계적 확산을 상징하는 경사로, 한류가 대중문화를 넘어 순수예술까지 확장된 성과입니다.<br>
+        <strong>비판:</strong> 일부에서는 정부 지원 없이 이뤄진 성취에 비해 국내 문화 예술 예산이 여전히 부족하다는 점을 지적합니다.</p>
       </div>
     </div>
+  </div>
 
-    <!-- AI 4 -->
-    <div class="news-card">
-      <div class="news-card-top">
-        <div class="news-num num-ai">4</div>
-        <div class="news-title">글로벌 AI 사용률 17.8% 돌파 — UAE 70% 세계 1위</div>
+  <!-- 세계 뉴스 4 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number world">4</span>
+        이재명 정부 1주년 — 국내외 평가 엇갈려
       </div>
-      <div class="news-summary">
-        마이크로소프트 보고서에 따르면 2026년 1분기 기준 전 세계 근로 연령 인구의 17.8%가 AI를 활용하고 있으며, UAE가 70.1%로 세계 1위를 기록했습니다. 미국은 31.3%로 21위에 올랐습니다. AI 기술이 일부 선진국을 중심으로 빠르게 일상에 스며들고 있음을 보여줍니다.
-      </div>
-      <div class="news-source">출처: <a href="https://blogs.microsoft.com/on-the-issues/2026/05/07/the-state-of-global-ai-diffusion-in-2026/" target="_blank">Microsoft On the Issues — 2026년 5월 7일</a></div>
-      <div class="special-box impact-box">
-        <div class="box-label">💡 일반인 영향</div>
-        <div class="box-text">
-          대한민국도 AI 사용이 급증하고 있습니다. 직장인은 업무 자동화 도구를, 학생은 학습 보조 AI를, 목회자는 설교 준비·성도 사역 관리 등에 AI를 활용하는 시대입니다. AI를 배우고 활용하는 것이 이제 선택이 아닌 필수가 되어가고 있습니다.
-        </div>
+      <div class="news-source">
+        📌 <span class="source-tag">경향신문 / 다음뉴스</span>
+        &nbsp;<a href="https://news.daum.net/global" target="_blank">원문 보기 →</a>
       </div>
     </div>
+    <div class="news-body">
+      <div class="summary-block">
+        이재명 정부 출범 1주년을 맞아 다양한 평가가 이어지고 있습니다. 중동 위기로 인한 에너지 물가 상승, 고금리 기조 지속, 북한 관계 등 복합적 도전에 직면해 있습니다. 국내 경제는 회복세를 보이는 부분도 있으나 양극화 심화에 대한 우려는 계속됩니다.
+      </div>
+      <div class="special-block opinion">
+        <div class="label">⚖️ 긍정 vs 비판 여론</div>
+        <p><strong>긍정:</strong> 복지 확대와 취약계층 지원 정책, 한미 동맹 유지 등에서 긍정적 평가를 받습니다.<br>
+        <strong>비판:</strong> 경제 성장 둔화, 물가 불안, 외교 다변화 과제 등에 대한 비판적 시각도 적지 않습니다.</p>
+      </div>
+    </div>
+  </div>
 
-  </div><!-- end ai panel -->
+  <!-- ═══════════════════════════════════ -->
+  <!--  섹션 3: AI 업계                    -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-divider"></div>
+  <div class="section-header ai">
+    <div class="icon">🤖</div>
+    <div>
+      <h2>AI 업계 뉴스</h2>
+      <p>인공지능 최신 동향 · 일반인 영향 분석</p>
+    </div>
+  </div>
+
+  <!-- AI 뉴스 1 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number ai">1</span>
+        Google I/O 2026 — Gemini 3.5·Omni 출시, 에이전트 시대 선언
+      </div>
+      <div class="news-source">
+        📌 <span class="source-tag">9to5Google / Gpters</span>
+        &nbsp;<a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/" target="_blank">원문 보기 →</a>
+      </div>
+    </div>
+    <div class="news-body">
+      <div class="summary-block">
+        구글이 I/O 2026에서 <strong>Gemini 3.5 Flash</strong>(이전 플래그십보다 빠르고 저렴)와 <strong>Gemini Omni</strong>(멀티모달 올인원 모델), <strong>Gemini Spark</strong>(자율 에이전트) 등을 발표했습니다. 특히 "AI가 질문에 답하는 도구에서 스스로 실행하는 에이전트로 전환"하는 시대를 공식 선언했습니다. 월 100달러 AI Ultra 구독도 출시.
+      </div>
+      <div class="special-block impact">
+        <div class="label">💡 일반인·목회자 영향</div>
+        <p>무료 Gemini 앱에서도 강력한 AI를 쓸 수 있게 됩니다. 설교 준비, 성경 연구, 교회 행정 등 다양한 목회 업무에 AI 에이전트를 활용할 수 있는 시대가 본격화됩니다. 단, AI가 스스로 판단하고 실행하는 시대인 만큼 AI 리터러시와 윤리 교육의 중요성도 커집니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI 뉴스 2 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number ai">2</span>
+        Anthropic Claude — 기업 AI 시장 점유율 60% 돌파, KPMG 글로벌 파트너십
+      </div>
+      <div class="news-source">
+        📌 <span class="source-tag">Let's Data Science / Digitimes</span>
+        &nbsp;<a href="https://letsdatascience.com/news/kpmg-deploys-claude-ai-across-global-digital-gateway-0a92a4cc" target="_blank">원문 보기 →</a>
+      </div>
+    </div>
+    <div class="news-body">
+      <div class="summary-block">
+        Anthropic의 Claude가 기업 AI 챗봇 시장에서 2025년 2월 10%에서 2026년 2월 60% 이상으로 급등했습니다. KPMG와 글로벌 얼라이언스를 체결, 138개국 276,000명 직원에게 Claude 기반 'Digital Gateway'를 제공합니다. OpenAI는 같은 기간 90%에서 35%로 급락했습니다.
+      </div>
+      <div class="special-block impact">
+        <div class="label">💡 일반인·목회자 영향</div>
+        <p>Claude(현재 목사님이 사용 중인 AI)가 기업·전문 환경에서 신뢰도 1위 AI로 자리잡았습니다. 향후 더 정교한 한국어 지원과 전문 도구 통합이 기대됩니다. AI 선택 시 안전성과 신뢰성이 중요한 기준이 되고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI 뉴스 3 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number ai">3</span>
+        한국 정부 'AI 휴머노이드' 개발 착수 — LG그룹·대학·병원 원팀
+      </div>
+      <div class="news-source">
+        📌 <span class="source-tag">아주경제</span>
+        &nbsp;<a href="https://www.ajunews.com/view/20260521080240253" target="_blank">원문 보기 →</a>
+      </div>
+    </div>
+    <div class="news-body">
+      <div class="summary-block">
+        한국 정부가 LG그룹과 주요 연구기관·대학·병원을 연계한 '원팀'을 구성해 한국형 AI 휴머노이드 개발에 착수했습니다. 고령화 사회 대응, 의료·돌봄 분야 적용을 주요 목표로 삼고 있습니다.
+      </div>
+      <div class="special-block impact">
+        <div class="label">💡 일반인·목회자 영향</div>
+        <p>AI 로봇이 노인 돌봄, 병원 보조 등에 투입되면 사회 구조 변화가 가속됩니다. 교회도 노령화 성도 돌봄에 AI 기술을 어떻게 접목할지 고민해야 할 때입니다. 기술이 대체할 수 없는 '인격적 돌봄'의 가치를 교회가 더욱 강조해야 합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI 뉴스 4 -->
+  <div class="news-card">
+    <div class="news-header">
+      <div class="news-title">
+        <span class="news-number ai">4</span>
+        "AI에 지친 사람들, 아날로그를 쫓는다" — 디지털 피로감 확산
+      </div>
+      <div class="news-source">
+        📌 <span class="source-tag">KBS / MSN</span>
+        &nbsp;<a href="https://www.msn.com/ko-kr/news/other/ai%EC%97%90-%EC%A7%80%EC%B9%9C-%EC%82%AC%EB%9E%8C%EB%93%A4-%EC%95%84%EB%82%A0%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%AB%93%EB%8A%94%EB%8B%A4-%EB%89%B4%EC%8A%A4%EC%9D%98-2%EB%A9%B4-kbs-2026-01-19/vi-AA1UubVf" target="_blank">원문 보기 →</a>
+      </div>
+    </div>
+    <div class="news-body">
+      <div class="summary-block">
+        AI와 디지털 기술의 홍수 속에서 오히려 아날로그적 경험, 손으로 쓰는 일기, 자연 속 산책, 대면 모임을 선호하는 사람들이 늘고 있습니다. 이른바 '디지털 피로감(Digital Fatigue)'이 사회 현상으로 부상하고 있습니다.
+      </div>
+      <div class="special-block impact">
+        <div class="label">💡 일반인·목회자 영향</div>
+        <p>교회의 대면 예배, 소그룹 목장 모임, 손으로 쓰는 기도 편지 등이 AI 시대에 오히려 큰 힘을 발휘할 수 있습니다. "디지털로 연결되지만 아날로그로 치유받는" 시대에 교회 공동체는 진정한 쉼터가 될 수 있습니다. 마태복음 11:28의 "내가 너희를 쉬게 하리라"는 말씀이 더욱 실감나는 시대입니다.</p>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<footer>
-  자동 생성 · 2026년 5월 21일<br>
-  박정원 목사 뉴스 브리핑 시스템
-</footer>
-
-<script>
-  function showPanel(name, btn) {
-    // Hide all panels
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    // Show selected
-    document.getElementById('panel-' + name).classList.add('active');
-    btn.classList.add('active');
-  }
-</script>
+<div class="footer">
+  자동 생성 뉴스 브리핑 · 2026년 5월 22일<br>
+  출처: 크리스천투데이, 기독일보, 9to5Google, Anthropic, 아주경제, KBS 등
+</div>
 
 </body>
 </html>
