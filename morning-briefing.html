@@ -3,108 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>아침 브리핑 - 2026년 6월 2일</title>
+<title>아침 브리핑 - 2026년 6월 3일</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: #f0f2f5; color: #333; }
-  .header { background: #1a237e; color: white; padding: 20px 16px 16px; }
-  .header h1 { font-size: 20px; font-weight: 700; }
-  .header .date { font-size: 13px; opacity: 0.85; margin-top: 4px; }
-  .header .greeting { font-size: 14px; margin-top: 8px; opacity: 0.9; }
-  .container { padding: 12px; max-width: 600px; margin: 0 auto; }
-  .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  .card-title { font-size: 13px; font-weight: 700; color: #1a237e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+  body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #f0f2f5; color: #222; }
+  header { background: #1a237e; color: white; padding: 20px 16px 16px; }
+  header h1 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+  header p { font-size: 0.85rem; opacity: 0.8; }
+  .container { max-width: 640px; margin: 0 auto; padding: 16px; }
+  .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .card-title { font-size: 0.8rem; font-weight: 700; color: #1a237e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .event-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
   .event-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .event-time { font-size: 12px; color: #666; min-width: 60px; margin-top: 1px; }
-  .event-name { font-size: 14px; font-weight: 500; }
-  .event-allday { font-size: 11px; background: #e8eaf6; color: #3949ab; padding: 2px 6px; border-radius: 10px; display: inline-block; margin-right: 6px; }
+  .event-time { font-size: 0.78rem; color: #1a237e; font-weight: 600; min-width: 75px; }
+  .event-name { font-size: 0.88rem; }
   .email-item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
   .email-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .email-sender { font-size: 11px; color: #888; margin-bottom: 2px; }
-  .email-subject { font-size: 13px; font-weight: 500; }
-  .email-badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 8px; margin-left: 6px; }
-  .badge-important { background: #ffebee; color: #c62828; }
-  .badge-info { background: #e3f2fd; color: #1565c0; }
-  .badge-warn { background: #fff3e0; color: #e65100; }
-  .todo-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .email-sender { font-size: 0.75rem; color: #888; margin-bottom: 2px; }
+  .email-subject { font-size: 0.85rem; font-weight: 500; }
+  .email-subject.urgent { color: #c62828; }
+  .todo-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f0f0f0; }
   .todo-item:last-child { border-bottom: none; }
-  .todo-num { width: 24px; height: 24px; background: #1a237e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-  .todo-text { font-size: 14px; }
-  .verse-card { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); color: white; border-radius: 12px; padding: 20px 16px; margin-bottom: 12px; text-align: center; }
-  .verse-text { font-size: 15px; line-height: 1.7; font-style: italic; }
-  .verse-ref { font-size: 12px; opacity: 0.8; margin-top: 8px; }
+  .todo-num { background: #1a237e; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; }
+  .todo-text { font-size: 0.88rem; }
+  .todo-badge { display: inline-block; font-size: 0.7rem; background: #ffecb3; color: #e65100; border-radius: 4px; padding: 1px 6px; margin-left: 6px; font-weight: 600; }
+  .no-event { color: #aaa; font-size: 0.85rem; padding: 8px 0; }
+  footer { text-align: center; font-size: 0.72rem; color: #aaa; padding: 10px 0 24px; }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>☀️ 아침 브리핑</h1>
-  <div class="date">2026년 6월 2일 화요일</div>
-  <div class="greeting">박정원 목사님, 오늘도 주님의 은혜로 시작하세요.</div>
-</div>
+<header>
+  <h1>📋 아침 브리핑</h1>
+  <p>2026년 6월 3일 (수요일) &nbsp;|&nbsp; 박정원 목사님</p>
+</header>
 <div class="container">
 
-  <div class="verse-card">
-    <div class="verse-text">"여호와는 나의 목자시니 내게 부족함이 없으리로다"</div>
-    <div class="verse-ref">— 시편 23:1</div>
-  </div>
-
+  <!-- 오늘 일정 -->
   <div class="card">
-    <div class="card-title">📅 오늘의 일정</div>
+    <div class="card-title">📅 오늘 일정</div>
     <div class="event-item">
-      <span class="event-time">종일</span>
-      <span class="event-name"><span class="event-allday">종일</span>주영 주안 디딤 통장 입금 확인</span>
-    </div>
-    <div class="event-item">
-      <span class="event-time">08:50</span>
-      <span class="event-name">기.컨 굿즈 시안 보고</span>
-    </div>
-    <div class="event-item">
-      <span class="event-time">10:30</span>
-      <span class="event-name">프랙티카 무료 체험 해지</span>
-    </div>
-    <div class="event-item">
-      <span class="event-time">19:00</span>
-      <span class="event-name">목장 기도제목 확인</span>
+      <span class="event-time">10:00 – 10:30</span>
+      <span class="event-name">070 한통화 전화하기</span>
     </div>
   </div>
 
+  <!-- 이메일 요약 -->
   <div class="card">
-    <div class="card-title">📧 주요 이메일</div>
+    <div class="card-title">📬 최근 이메일 요약</div>
     <div class="email-item">
-      <div class="email-sender">Google Forms</div>
-      <div class="email-subject">2026 기도컨퍼런스 사전 등록에 새 응답 <span class="email-badge badge-important">중요</span></div>
+      <div class="email-sender">Google Play</div>
+      <div class="email-subject urgent">⚠️ Praktika AI 정기결제 6월 4일 종료 예정</div>
     </div>
     <div class="email-item">
-      <div class="email-sender">Google Play / Duolingo</div>
-      <div class="email-subject">듀오링고 정기결제 취소 – 6월 8일 무료체험 종료 <span class="email-badge badge-warn">확인필요</span></div>
+      <div class="email-sender">Firebase (5건)</div>
+      <div class="email-subject urgent">⚠️ 여러 Firebase DB 보안 규칙 미설정 경고</div>
     </div>
     <div class="email-item">
-      <div class="email-sender">Firebase (복수)</div>
-      <div class="email-subject">Firebase DB 보안 규칙 경고 (5개 프로젝트) <span class="email-badge badge-warn">보안</span></div>
+      <div class="email-sender">Google Calendar</div>
+      <div class="email-subject">오늘 일일 일정 알림 수신</div>
     </div>
     <div class="email-item">
-      <div class="email-sender">Manus</div>
-      <div class="email-subject">워크플로우 저장·공유 기능 안내 <span class="email-badge badge-info">정보</span></div>
+      <div class="email-sender">Duolingo</div>
+      <div class="email-subject">언어 학습 리마인더</div>
     </div>
   </div>
 
+  <!-- 오늘 할 일 -->
   <div class="card">
-    <div class="card-title">✅ 오늘의 할 일 TOP 3</div>
+    <div class="card-title">✅ 오늘 할 일</div>
     <div class="todo-item">
       <div class="todo-num">1</div>
-      <div class="todo-text">주영·주안·디딤 통장 입금 여부 확인 및 기록</div>
+      <div class="todo-text">
+        <strong>070 한통화 전화</strong> — 오전 10시 예정
+        <span class="todo-badge">📞 일정</span>
+      </div>
     </div>
     <div class="todo-item">
       <div class="todo-num">2</div>
-      <div class="todo-text">프랙티카 무료 체험 해지 완료 (10:30 전 준비)</div>
+      <div class="todo-text">
+        <strong>Praktika 정기결제 갱신 또는 해지 결정</strong> — 내일(6/4) 종료
+        <span class="todo-badge">⚠️ 긴급</span>
+      </div>
     </div>
     <div class="todo-item">
       <div class="todo-num">3</div>
-      <div class="todo-text">2026 기도컨퍼런스 사전 등록 응답 내용 확인</div>
+      <div class="todo-text">
+        <strong>Firebase 데이터베이스 보안 규칙 점검</strong> — prayer-ministry, prayer-conference, sri-lanka-mission 등 5개 프로젝트
+        <span class="todo-badge">🔒 보안</span>
+      </div>
     </div>
   </div>
 
 </div>
+<footer>자동 생성됨 · 2026-06-03</footer>
 </body>
 </html>
