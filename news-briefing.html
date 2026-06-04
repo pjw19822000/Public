@@ -3,236 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>뉴스 브리핑 - 2026년 6월 5일</title>
+<title>뉴스 브리핑 – 2026년 6월 5일</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: #f4f6fb; min-height: 100vh; }
-
-  .header {
-    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 30%, #6a1b9a 70%, #880e4f 100%);
-    color: white;
-    padding: 28px 20px 24px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: #f5f5f5;
+    color: #222;
   }
-  .header h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
-  .header .date { font-size: 13px; margin-top: 6px; opacity: 0.85; }
-
-  .container { max-width: 480px; margin: 0 auto; padding: 16px 14px 32px; }
-
-  .section-title {
-    font-size: 15px;
-    font-weight: 800;
-    padding: 10px 14px;
-    border-radius: 10px 10px 0 0;
+  header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
     color: white;
-    margin-bottom: 0;
+    padding: 22px 16px 18px;
+    text-align: center;
+  }
+  header .date-label {
+    font-size: 12px;
+    opacity: 0.8;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  header .subtitle {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  /* 섹션 헤더 */
+  .section-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 0;
+    margin-top: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
   }
-  .section-title.christian { background: linear-gradient(90deg, #1b5e20, #2e7d32); }
-  .section-title.world { background: linear-gradient(90deg, #0d47a1, #1565c0); }
-  .section-title.ai { background: linear-gradient(90deg, #4a148c, #6a1b9a); }
-
-  .section-wrapper { margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-
-  .news-card {
+  .section-header.christian { background: #5c6bc0; }
+  .section-header.world { background: #1565c0; }
+  .section-header.ai { background: #00695c; }
+  .section-desc {
+    font-size: 11px;
+    opacity: 0.85;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  /* 뉴스 카드 그룹 */
+  .news-group {
     background: white;
-    padding: 16px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+  .news-card {
+    padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
   }
   .news-card:last-child { border-bottom: none; }
-
-  .news-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 7px; line-height: 1.4; }
-  .news-summary { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 10px; }
-
-  .tag {
-    display: inline-block;
-    border-radius: 5px;
-    font-size: 10px;
+  .news-title {
+    font-size: 15px;
     font-weight: 700;
-    padding: 2px 7px;
-    margin-right: 4px;
+    color: #1a1a1a;
+    line-height: 1.4;
     margin-bottom: 6px;
   }
-  .tag.sermon { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
-  .tag.no-sermon { background: #fafafa; color: #bbb; border: 1px solid #ddd; }
-  .tag.positive { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
-  .tag.critical { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
-  .tag.impact { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
-
-  .opinion-box {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 10px 12px;
-    margin-top: 8px;
+  .news-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .news-title a:hover { text-decoration: underline; }
+  .news-summary {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.55;
     margin-bottom: 8px;
   }
-  .opinion-label { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
-  .opinion-label.pos { color: #1565c0; }
-  .opinion-label.neg { color: #c62828; }
-  .opinion-text { font-size: 12px; color: #555; line-height: 1.5; }
-
-  .source-link {
-    display: inline-block;
-    font-size: 11px;
-    color: #1565c0;
-    text-decoration: none;
-    margin-top: 4px;
-    padding: 3px 8px;
-    border: 1px solid #c5cae9;
-    border-radius: 5px;
-    background: #f5f5ff;
+  .news-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
   }
-  .source-link:hover { background: #e8eaf6; }
-
-  .divider { height: 1px; background: #eee; margin: 4px 0; }
-
-  .footer { text-align: center; font-size: 11px; color: #bbb; margin-top: 8px; }
+  .news-source {
+    font-size: 11px;
+    color: #888;
+  }
+  /* 특수 태그 */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+  .tag-sermon { background: #ede7f6; color: #4527a0; }
+  .tag-positive { background: #e8f5e9; color: #2e7d32; }
+  .tag-critical { background: #ffebee; color: #c62828; }
+  .tag-impact { background: #fff8e1; color: #e65100; }
+  .tag-warning { background: #fff3e0; color: #bf360c; }
+  /* 설교 예화 박스 */
+  .sermon-box {
+    background: #f3e5f5;
+    border-left: 3px solid #7b1fa2;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #4a148c;
+    line-height: 1.5;
+  }
+  .sermon-box strong { font-size: 11px; display: block; margin-bottom: 3px; }
+  /* 여론 박스 */
+  .opinion-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .opinion-box {
+    flex: 1;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .opinion-box.pos { background: #e8f5e9; border-left: 3px solid #43a047; }
+  .opinion-box.neg { background: #ffebee; border-left: 3px solid #e53935; }
+  .opinion-box strong { display: block; font-size: 10px; margin-bottom: 2px; color: #555; }
+  /* AI 영향 박스 */
+  .impact-box {
+    background: #e0f2f1;
+    border-left: 3px solid #00897b;
+    border-radius: 4px;
+    padding: 7px 10px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #004d40;
+    line-height: 1.45;
+  }
+  .impact-box strong { font-size: 11px; display: block; margin-bottom: 2px; }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    padding: 24px 16px 32px;
+  }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>🌐 뉴스 브리핑</h1>
-  <div class="date">2026년 6월 5일 금요일 | 박정원 목사님</div>
-</div>
+<header>
+  <div class="date-label">2026. 6. 5 (금) · 뉴스 브리핑</div>
+  <h1>📰 오늘의 뉴스</h1>
+  <div class="subtitle">기독교 · 세계 정세 · AI 동향</div>
+</header>
 
 <div class="container">
 
-  <!-- ① 기독교 뉴스 -->
-  <div class="section-wrapper">
-    <div class="section-title christian">⛪ 한국 기독교 교회 뉴스</div>
+  <!-- ======== 기독교 뉴스 ======== -->
+  <div class="section-header christian">
+    ✝️ 기독교 뉴스
+    <span class="section-desc">한국교회 및 세계 교회 동향</span>
+  </div>
+  <div class="news-group">
 
     <div class="news-card">
-      <div class="news-title">6월 13일 '거룩한방파제 통합국민대회' 서울 도심 개최</div>
-      <div class="news-summary">
-        차별금지법(평등법) 반대를 위한 전국 700개 단체 연합 집회가 오는 6월 13일 서울 도심에서 열린다. 기독교계는 차별금지법이 종교의 자유와 표현의 자유를 침해한다는 입장을 견지하며 대규모 연합 행동을 이어가고 있다.
+      <div class="news-title">
+        <a href="https://prayer24365.org/65952/" target="_blank">쥬빌리코리아 기도큰모임 — 6·6 현충일, 청주 상당교회</a>
       </div>
-      <span class="tag sermon">✔ 설교 예화 활용 가능</span>
-      <div style="font-size:12px;color:#888;margin-top:4px;">→ "세상 속 교회의 목소리"를 주제로 한 설교에서 신앙적 공적 참여의 사례로 활용 가능</div>
-      <br>
-      <a class="source-link" href="https://www.christiandaily.co.kr/" target="_blank">📰 출처: 기독일보</a>
+      <div class="news-summary">쥬빌리 통일구국기도회가 6월 6일(현충일) 충북 청주 상당교회에서 '2026 쥬빌리코리아 기도큰모임'을 개최합니다. 민족 통일과 나라를 위한 연합 기도 집회로, 전국 교회의 동참을 요청하고 있습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">기도24·365</span>
+        <span class="tag tag-sermon">예화 가능</span>
+      </div>
+      <div class="sermon-box">
+        <strong>📖 설교 예화</strong>
+        "현충일에 나라와 민족을 위해 기도하는 성도들의 모습은, 느헤미야가 무너진 성벽 앞에서 금식하며 기도했던 장면을 연상시킵니다. 진정한 애국은 총을 드는 것이 아니라, 무릎을 꿇는 것입니다."
+      </div>
     </div>
 
     <div class="news-card">
-      <div class="news-title">2026 제11차 세계한인선교대회 — 다음세대 선교 집중</div>
-      <div class="news-summary">
-        미주에서 열리고 있는 세계한인선교대회 둘째 날 일정이 다음세대 선교에 집중되었다. 전 세계 한인 선교사들이 청년·청소년 세대를 향한 선교 전략을 공유하며 디지털 시대의 복음 전달 방식을 논의했다.
+      <div class="news-title">
+        <a href="http://www.churchr.or.kr/news/articleView.html?idxno=20263" target="_blank">한국교회 트렌드 2026 — 코람데오, AI 목회 통합, 연합이 핵심</a>
       </div>
-      <span class="tag sermon">✔ 설교 예화 활용 가능</span>
-      <div style="font-size:12px;color:#888;margin-top:4px;">→ 다음세대, 선교, 비전 설교에 적합한 사례</div>
-      <br>
-      <a class="source-link" href="https://kr.christianitydaily.com/" target="_blank">📰 출처: 기독일보(미주)</a>
+      <div class="news-summary">한장총이 2026년 주제로 '코람데오'를 선포했습니다. 연구 기관들은 AI·소그룹·이민 선교·다음 세대를 올해 한국교회 핵심 트렌드로 꼽았으며, 교회의 공공성 회복과 교단 초월 연합이 강조되고 있습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">교갱뉴스 / 기독일보</span>
+        <span class="tag tag-sermon">예화 가능</span>
+      </div>
+      <div class="sermon-box">
+        <strong>📖 설교 예화</strong>
+        "코람데오(Coram Deo) — '하나님 앞에서'. 우리가 AI를 사용하든, 미디어를 활용하든, 모든 것을 하나님의 시선 앞에서 행한다면 두려울 것이 없습니다. 다니엘이 바벨론 한복판에서도 하나님 앞에 무릎 꿇었듯이."
+      </div>
     </div>
 
     <div class="news-card">
-      <div class="news-title">한국교회 2026 전망 — "더 선명한 교회" 정체성 회복 촉구</div>
-      <div class="news-summary">
-        교계 전문가들은 2026년 한국교회가 양적 성장 대신 정체성 중심의 구조적 전환에 직면했다고 분석한다. AI 미디어 환경과 청년문화 변화 속에서 교회의 본질 회복이 시급하다는 목소리가 높다.
+      <div class="news-title">
+        <a href="https://www.christiandaily.co.kr/news/152026" target="_blank">2026 한국교회 전망 — 성경 읽기 76분, 기도 27분, 청년 이탈 가속</a>
       </div>
-      <span class="tag sermon">✔ 설교 예화 활용 가능</span>
-      <div style="font-size:12px;color:#888;margin-top:4px;">→ "교회란 무엇인가", 공동체 정체성 설교에 배경 자료로 활용</div>
-      <br>
-      <a class="source-link" href="https://www.cheraldus.com/bbs/board.php?bo_table=korean_news&wr_id=226" target="_blank">📰 출처: 크리스천헤럴드</a>
+      <div class="news-summary">목회데이터연구소에 따르면 한국 성도의 주간 성경 읽기 시간은 76분으로 증가했으나, 기도 시간은 27분에 정체되어 있습니다. 청년층 교회 이탈과 사회적 신뢰 하락이 '위기의 교회'를 예고하고 있다는 경고가 나옵니다.</div>
+      <div class="news-meta">
+        <span class="news-source">기독일보</span>
+        <span class="tag tag-sermon">예화 가능</span>
+      </div>
+      <div class="sermon-box">
+        <strong>📖 설교 예화</strong>
+        "말씀을 읽는 시간은 늘었지만 무릎 꿇는 시간은 줄었다는 것, 이것이 오늘 한국교회의 자화상입니다. 야고보는 말합니다. '너희가 얻지 못함은 구하지 아니하기 때문이라'(약 4:2)."
+      </div>
     </div>
+
+    <div class="news-card">
+      <div class="news-title">
+        <a href="https://www.christiantoday.co.kr/news/375437" target="_blank">남가주교협, "위기의 시대 미주한인교회 다음 10년 준비한다" 세미나 개최</a>
+      </div>
+      <div class="news-summary">남가주한인교회협의회가 LA에서 이민 교회의 다음 세대 전략 세미나를 열었습니다. 이민 1.5세·2세를 위한 영어 목회, 문화 통합, 다음 세대 신앙 전수 방안이 논의됐습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">크리스천투데이</span>
+        <span class="tag tag-sermon">예화 가능</span>
+      </div>
+      <div class="sermon-box">
+        <strong>📖 설교 예화</strong>
+        "이민의 땅 바벨론에서도 다음 세대에게 믿음을 전한 것이 유대 공동체의 생존 비결이었습니다. 디아스포라 교회의 사명은 '이곳에서도 여호와께 노래하라'(시 137:4)는 도전에 응답하는 것입니다."
+      </div>
+    </div>
+
   </div>
 
-  <!-- ② 세계 국제 정세 뉴스 -->
-  <div class="section-wrapper">
-    <div class="section-title world">🌏 세계 국제 정세 뉴스</div>
+  <!-- ======== 세계 정세 뉴스 ======== -->
+  <div class="section-header world">
+    🌍 세계 정세
+    <span class="section-desc">오늘의 국제 주요 뉴스</span>
+  </div>
+  <div class="news-group">
 
     <div class="news-card">
-      <div class="news-title">필리핀·베트남, 전략적 파트너십 격상 — 남중국해 협력 강화</div>
-      <div class="news-summary">
-        베트남 국가주석 또 럼(Tô Lâm)의 필리핀 국빈 방문을 계기로 양국이 '강화된 전략적 파트너십'으로 관계를 격상했다. 남중국해 분쟁 속 동남아 국가 간 연대 강화 흐름으로 해석된다.
+      <div class="news-title">
+        <a href="https://www.hankookilbo.com/news/article/A2026060409000002982" target="_blank">우크라이나, 푸틴 고향 상트페테르부르크 드론 공격 — 러시아 핵 위협 재부상</a>
       </div>
-      <div class="opinion-box">
-        <div class="opinion-label pos">👍 긍정 여론</div>
-        <div class="opinion-text">중국의 해양 팽창에 맞서 동남아 국가들이 자체적 안보 네트워크를 구축한다는 점에서 지역 안정에 기여</div>
+      <div class="news-summary">우크라이나가 6월 3일 상트페테르부르크의 석유 터미널과 크론슈타트 해군 기지를 드론으로 타격했습니다. 젤렌스키는 "정당한 대응"이라며 종전 협상 여건이 마련됐다고 밝혔습니다. 러시아는 영토 공격 시 핵무기 사용 가능성을 재경고했습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">한국일보</span>
       </div>
-      <div class="opinion-box">
-        <div class="opinion-label neg">👎 비판 여론</div>
-        <div class="opinion-text">미중 패권 경쟁에 동남아가 점점 더 끌려들어가며 지역 긴장이 고조될 수 있다는 우려</div>
+      <div class="opinion-row">
+        <div class="opinion-box pos"><strong>👍 긍정 여론</strong>"협상 레버리지 확보를 위한 전략적 선택. 종전 대화로 이어질 수 있다."</div>
+        <div class="opinion-box neg"><strong>👎 비판 여론</strong>"민간 도심 인근 핵심 인프라 공격은 전쟁 확전 위험을 높인다."</div>
       </div>
-      <a class="source-link" href="https://en.wikipedia.org/wiki/Portal:Current_events/June_2026" target="_blank">📰 출처: Wikipedia Current Events</a>
     </div>
 
     <div class="news-card">
-      <div class="news-title">말레이시아, 16세 미만 SNS 이용 공식 금지 발효</div>
-      <div class="news-summary">
-        말레이시아에서 16세 미만 청소년의 소셜미디어 사용을 금지하는 법이 공식 발효됐다. 위반 기업에는 최대 1,000만 링깃(약 30억 원)의 벌금이 부과된다. 아동 정신 건강 보호를 위한 조치로, 아시아 주요 국가 중 가장 강력한 규제다.
+      <div class="news-title">
+        <a href="https://www.world-today-journal.com/5-must-read-news-stories-you-missed-june-5-2026/" target="_blank">세계기상기구(WMO), 2026년 기후 보고 — 아시아·태평양 이상기후 급증</a>
       </div>
-      <div class="opinion-box">
-        <div class="opinion-label pos">👍 긍정 여론</div>
-        <div class="opinion-text">청소년 디지털 중독·사이버 폭력·정신건강 문제를 국가가 적극적으로 차단하는 선진 정책</div>
+      <div class="news-summary">WMO는 2026년 1~5월 전 지구 온도 이상치가 파리협정 1.5℃ 목표 범위 내에 있다고 밝혔으나, 아시아-태평양 지역의 극단적 기상 현상 빈도가 급증했다고 경고했습니다. 기후 인프라 강화가 시급하다고 권고했습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">World Today Journal</span>
       </div>
-      <div class="opinion-box">
-        <div class="opinion-label neg">👎 비판 여론</div>
-        <div class="opinion-text">실효성에 의문 — 우회 접속이 쉽고, 오히려 청소년의 디지털 리터러시 교육 기회를 박탈할 수 있다는 반론</div>
+      <div class="opinion-row">
+        <div class="opinion-box pos"><strong>👍 긍정 여론</strong>"1.5℃ 목표 유지는 국제 협력의 성과. 파리협정 이행이 효과를 내고 있다."</div>
+        <div class="opinion-box neg"><strong>👎 비판 여론</strong>"수치 목표 달성과 무관하게 실제 피해는 개발도상국에 집중되고 있다."</div>
       </div>
-      <a class="source-link" href="https://www.world-today-journal.com/5-must-read-news-stories-you-missed-june-5-2026/" target="_blank">📰 출처: World Today Journal</a>
     </div>
 
     <div class="news-card">
-      <div class="news-title">UNHCR, 북아프리카 난민 긴급 원조 1,200억 원 확보</div>
-      <div class="news-summary">
-        유엔난민기구(UNHCR)가 북아프리카 이주민·난민 위기 대응을 위해 약 1,200억 원 규모의 긴급 자금을 국제 사회로부터 확보했다. 의료품, 식수, 임시 거처 제공에 집중 투입될 예정이다.
+      <div class="news-title">
+        <a href="https://www.world-today-journal.com/5-must-read-news-stories-you-missed-june-5-2026/" target="_blank">UN 주도 글로벌 AI 거버넌스 프레임워크 1단계 시행 개시</a>
       </div>
-      <div class="opinion-box">
-        <div class="opinion-label pos">👍 긍정 여론</div>
-        <div class="opinion-text">인도주의적 위기에 국제 사회가 신속하게 반응한 것으로 평가</div>
+      <div class="news-summary">국제 규제 기관들이 UN 주도의 글로벌 AI 거버넌스 프레임워크 1단계 시행에 들어갔습니다. 투명성 요구, 고위험 AI 사용 제한, 국가 간 감사 체계 구축 등이 주요 내용입니다.</div>
+      <div class="news-meta">
+        <span class="news-source">World Today Journal</span>
       </div>
-      <div class="opinion-box">
-        <div class="opinion-label neg">👎 비판 여론</div>
-        <div class="opinion-text">근본 원인(분쟁·기후 위기)은 해결하지 않은 채 임시 처방만 반복된다는 지적</div>
+      <div class="opinion-row">
+        <div class="opinion-box pos"><strong>👍 긍정 여론</strong>"국제 공조를 통한 AI 안전망 구축. 기술 패권 경쟁의 완충재 역할 기대."</div>
+        <div class="opinion-box neg"><strong>👎 비판 여론</strong>"강제성 없는 자발적 프레임워크는 실효성이 없다는 지적."</div>
       </div>
-      <a class="source-link" href="https://www.world-today-journal.com/5-must-read-news-stories-you-missed-june-5-2026/" target="_blank">📰 출처: World Today Journal</a>
     </div>
+
+    <div class="news-card">
+      <div class="news-title">
+        <a href="https://www.korea.kr/briefing/policyBriefingView.do?newsId=156761126" target="_blank">연준·ECB, 3분기 금리 동결 기조 유지 — 임금 인플레이션 여전히 변수</a>
+      </div>
+      <div class="news-summary">미국 연방준비제도(Fed)와 유럽중앙은행(ECB)은 2026년 3분기 금리를 동결 유지할 것으로 예상됩니다. 물가 상승 압력은 완화되고 있으나, 지속적인 임금 상승이 인플레이션 목표 달성을 복잡하게 만들고 있습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">정책브리핑 / BIS</span>
+      </div>
+      <div class="opinion-row">
+        <div class="opinion-box pos"><strong>👍 긍정 여론</strong>"임금 상승은 실질 생활 수준 개선의 신호. 고용 시장 건전성을 반영한다."</div>
+        <div class="opinion-box neg"><strong>👎 비판 여론</strong>"고금리 장기화는 중소기업 및 가계 부채 부담을 가중시키고 있다."</div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ③ AI 인공지능 뉴스 -->
-  <div class="section-wrapper">
-    <div class="section-title ai">🤖 AI 인공지능 최신 뉴스</div>
+  <!-- ======== AI 뉴스 ======== -->
+  <div class="section-header ai">
+    🤖 AI 동향
+    <span class="section-desc">인공지능 업계 최신 소식</span>
+  </div>
+  <div class="news-group">
 
     <div class="news-card">
-      <div class="news-title">ChatGPT 월간 사용자 10억 명 돌파 — 역대 최단 기록</div>
-      <div class="news-summary">
-        OpenAI의 ChatGPT가 출시 약 3년 만에 월간 활성 사용자 10억 명을 돌파했다. 반면 Anthropic의 Claude는 5,600만 명이지만 전년 대비 640% 성장률로 가장 빠르게 성장 중이다. ChatGPT는 개인 사용, Claude는 업무 필수 도구로 인식되는 경향이 뚜렷하다.
+      <div class="news-title">
+        <a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-1-2026" target="_blank">Anthropic, 650억 달러 모금으로 기업가치 9,650억 달러 — OpenAI 추월</a>
       </div>
-      <span class="tag impact">📱 생활 영향</span>
-      <div style="font-size:12px;color:#888;margin-top:6px;">AI 비서가 이제 전 세계 7~8명 중 1명이 사용하는 생활 도구가 되었습니다. 설교 준비, 행정 업무, 교육 콘텐츠 제작에도 폭넓게 활용됩니다.</div>
-      <br>
-      <a class="source-link" href="https://gagadget.com/en/713398-chatgpt-hits-1-billion-users-but-claude-is-closing-the-gap-fast/" target="_blank">📰 출처: Gagadget</a>
+      <div class="news-summary">Claude를 만든 Anthropic이 650억 달러 규모의 자금을 유치해 기업가치 9,650억 달러를 달성, OpenAI(8,520억 달러)를 제치고 세계 최고 가치의 비상장 AI 기업이 됐습니다. AI 안전성 중심 접근 방식이 투자자 신뢰를 높였다는 평가입니다.</div>
+      <div class="news-meta">
+        <span class="news-source">Build Fast with AI</span>
+      </div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향</strong>Claude AI 서비스가 더욱 안정적으로 제공될 전망입니다. Anthropic의 성장은 한국어 서비스 및 한국 이용자 지원 강화로 이어질 수 있습니다.
+      </div>
     </div>
 
     <div class="news-card">
-      <div class="news-title">Anthropic, 미국 증시 IPO 비밀리 신청 — OpenAI도 상장 준비</div>
-      <div class="news-summary">
-        Claude 개발사 Anthropic이 2026년 6월 2일 미국 증시에 비공개 IPO를 신청했다. OpenAI도 5월 22일 S-1을 제출하며 2026년 4분기 상장을 목표로 하고 있다. AI 기업들의 대형 IPO가 잇따르며 AI 산업이 본격 성숙 단계에 진입했다는 신호로 해석된다.
+      <div class="news-title">
+        <a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank">트럼프, AI 혁신·안보 행정명령 발표 — 출시 전 30일 정부 사전 검토 요구</a>
       </div>
-      <span class="tag impact">📱 생활 영향</span>
-      <div style="font-size:12px;color:#888;margin-top:6px;">AI 서비스가 안정적인 기업 구조를 갖추게 되면 서비스 지속성과 보안이 강화될 전망입니다. 교회·선교 단체의 AI 도구 채택에도 안정성이 더해질 것으로 기대됩니다.</div>
-      <br>
-      <a class="source-link" href="https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html" target="_blank">📰 출처: CNBC</a>
+      <div class="news-summary">트럼프 대통령이 AI 혁신 및 안보 증진 행정명령에 서명했습니다. 테크 기업들이 '프런티어' AI 모델을 공개하기 전 최대 30일간 정부에 자발적으로 제출하도록 요청하는 내용이 포함됐습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">White House / Scientific American</span>
+      </div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향</strong>새 ChatGPT·Claude 등 주요 AI 신모델 출시가 최대 한 달 늦어질 수 있습니다. 국가 안보 심사가 AI 서비스 업데이트 속도에 영향을 줄 전망입니다.
+      </div>
     </div>
 
     <div class="news-card">
-      <div class="news-title">Microsoft·Google, AI 코딩 모델 경쟁 가열 — Anthropic·OpenAI에 도전</div>
-      <div class="news-summary">
-        Microsoft와 Google이 코딩 특화 AI 모델을 출시하며 Anthropic의 Claude Code, OpenAI의 Codex와 정면 승부에 나섰다. AI 코딩 시장이 급성장하며 개발자 생산성이 2~5배 향상됐다는 연구 결과도 속속 발표되고 있다.
+      <div class="news-title">
+        <a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html" target="_blank">Microsoft, 자체 AI 모델 MAI-Code-1-Flash 공개 — OpenAI 의존도 줄인다</a>
       </div>
-      <span class="tag impact">📱 생활 영향</span>
-      <div style="font-size:12px;color:#888;margin-top:6px;">교회 홈페이지, 앱 개발, 예배 미디어 자동화 등 소규모 교회도 AI 코딩 도구로 IT 역량을 손쉽게 확보할 수 있게 되었습니다.</div>
-      <br>
-      <a class="source-link" href="https://llm-stats.com/ai-news" target="_blank">📰 출처: LLM Stats</a>
+      <div class="news-summary">Microsoft는 Build 2026에서 코드 생성 특화 자체 AI 모델 'MAI-Code-1-Flash'를 공개했습니다. OpenAI 의존도를 낮추고 개발자 비용을 절감하는 것이 목표입니다. Azure AI Foundry에 Claude를 포함한 다양한 AI 모델이 공식 지원됩니다.</div>
+      <div class="news-meta">
+        <span class="news-source">CNBC</span>
+      </div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향</strong>소프트웨어 개발 비용 하락과 함께 앱·서비스 제작 접근성이 높아질 전망입니다. 교회 앱이나 사역 도구 개발도 더 저렴해질 수 있습니다.
+      </div>
     </div>
+
+    <div class="news-card">
+      <div class="news-title">
+        <a href="https://llm-stats.com/llm-updates" target="_blank">Google, Gemini 3.5 Flash 정식 출시 — 프런티어 성능, 4배 빠른 속도</a>
+      </div>
+      <div class="news-summary">Google이 Gemini 3.5 Flash를 정식 출시했습니다. GPT-4 수준의 성능을 4배 빠른 속도로 제공하는 것이 특징입니다. 동시에 사이버 보안 업체 Sysdig는 LLM 에이전트가 1시간 이내에 AWS 데이터베이스를 자율적으로 해킹한 사례를 공개해 AI 보안 우려를 높였습니다.</div>
+      <div class="news-meta">
+        <span class="news-source">LLM Stats / Sysdig</span>
+        <span class="tag tag-warning">⚠️ 보안 경고</span>
+      </div>
+      <div class="impact-box">
+        <strong>💡 일반인 영향</strong>더 빠르고 저렴한 AI 서비스 이용이 가능해집니다. 그러나 AI 해킹 자동화 사례가 현실로 드러나 개인정보 및 교회 DB 보안 점검이 중요해졌습니다.
+      </div>
+    </div>
+
   </div>
 
 </div>
 
-<div class="footer">자동 생성 · 2026.06.05 뉴스 브리핑</div>
+<footer>
+  자동 생성 · 2026-06-05 · Claude AI | 뉴스 출처: 각 언론사 링크 참조
+</footer>
 
 </body>
 </html>
